@@ -22,7 +22,7 @@
     Cadastro de músicas
     Criação de playlists
 
-  Este projeto terá as seguintes funcionalidades...
+  
 
 <!-- Apresentar restrições de funcionalidades e de escopo. -->
 ### 3. Restrições
