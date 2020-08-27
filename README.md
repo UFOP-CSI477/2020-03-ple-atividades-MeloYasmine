@@ -2,11 +2,11 @@
 
 ## Atualize os seus dados:
 
-- Nome:
-- Matrícula:
-- Curso:
-- Semestre/Ano correntes:
-- Link para o seu GitHub:
+- Nome:Yasmine de Melo Leite
+- Matrícula:  17.2.8104
+- Curso:  Sistemas de informação    
+- Semestre/Ano correntes:2020/1
+- Link para o seu GitHub:https://github.com/MeloYasmine
 
 ## [Projeto final:](./Projeto/README.md) 
 
