@@ -1,5 +1,5 @@
 # **CSI477-2020-03 - PLE - Proposta de Trabalho Final**
-## *Aluna(o): Princesa Leia (Luke Skywalker)*
+## *Aluna(o): Yasmine de Melo leite
 
 --------------
 
@@ -12,10 +12,15 @@
 <!-- Apresentar o tema. -->
 ### 1. Tema
 
-  O trabalho final tem como tema o desenvolvimento de ...
+  O trabalho final tem como tema o desenvolvimento de um sistema streamig de música.
 
 <!-- Descrever e limitar o escopo da aplicação. -->
 ### 2. Escopo
+
+  Este projeto terá as seguintes funcionalidades: 
+    Cadastro de usuários
+    Cadastro de músicas
+    Criação de playlists
 
   Este projeto terá as seguintes funcionalidades...
 
