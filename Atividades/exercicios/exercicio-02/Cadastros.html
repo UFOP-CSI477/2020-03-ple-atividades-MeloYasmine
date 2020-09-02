@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="br" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastros de Usuários</title>
+
+    <link rel="stylesheet" href="forms.css">
+
+
+</head>
+<body>
+    <h1>Cadastro de Usuário</h1>
+
+    <!--Encapsular elementos-->
+    <form method="get" action="validar.html">
+        <!--Tipo de entrada de dado-->
+
+    <div class>
+       <label for="nome">Nome:</label>
+       <input type="text" name="Nome" id="nome" placeholder="Nome da pessoa">
+    </div>
+
+    <div>
+        <label for="usuario">Usuário:</label>
+        <input type="text" name="Usuario" id="usuario" placeholder="usuário/apelido">
+     </div>
+
+    <div>
+      <label for="email">E-mail:</label>
+      <input type="email" name="Email" id="email" placeholder="E-mail">
+    </div>
+
+    <div>
+        <label for="datanasc">Data de nascimento:</label>
+        <input type="date" name="datanascimento" id="datanasc">
+      </div>
+
+    <div>
+        <label>Sexo:</label>
+
+        <div>
+        <input type="radio" name="sexo"  id="feminino" value="F">
+        <label for ="feminino">Feminino</label>
+        </div>
+
+        <div>
+        <input type="radio" name="sexo"  id="masculino" value="M">
+        <label for ="masculino">Masculino</label>
+        </div>
+
+        <div>
+        <input type="radio" name="sexo"  id="naoinfo" value="N">
+        <label for ="naoinfo">Não Informar</label>
+        </div>
+
+        
+
+    </div>
+
+    
+        <!--Inserir foto de perfil -->
+  
+
+    <div>
+
+        <label>Gêrenos de Música de interesse:</label>
+
+        <div>       
+            <input type="checkbox" name="POP" id="pop">
+            <label for="pop">Pop</label>
+        </div>
+
+        <div>       
+            <input type="checkbox" name="Rock" id="rock">
+            <label for="rock">Rock</label>
+        </div>
+
+        <div>       
+            <input type="checkbox" name="Indie" id="indie">
+            <label for="indie">Indie</label>
+        </div>
+
+        <div>       
+            <input type="checkbox" name="Sertanejo" id="sertanejo">
+            <label for="sertanejo">Sertanejo</label>
+        </div>
+
+    </div>
+
+
+
+    <div>
+        <input type="submit" value="Confirmar">
+    </div>
+      
+
+
+
+
+
+    </form>
+    
+</body>
+</html>

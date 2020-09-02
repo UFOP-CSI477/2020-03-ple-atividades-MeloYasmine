@@ -1,0 +1,30 @@
+label{
+    font-weight: bold;
+}
+input[type="text"], [type="date"], [type="email"]{
+    width: 50%;
+    padding: 10px;
+    background-color: ghostwhite;
+    border: 1px solid;
+    border-radius: 15px;
+
+}
+
+input[type="submit"]{
+    width: 10%;
+    padding: 16px 32px;
+    border-radius: 15px;
+    text-justify: center;
+    cursor: pointer;
+    
+    
+
+
+}
+
+/**Todos os divs filhos do formulário**/
+form > div{
+    padding: 20px;
+    border: 1px solid;
+
+}

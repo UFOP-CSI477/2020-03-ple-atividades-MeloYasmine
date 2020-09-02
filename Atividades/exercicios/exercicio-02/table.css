@@ -1,0 +1,48 @@
+table{
+    width: 50%;
+
+}
+
+table, th, td{
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+th, td{
+    padding: 10px;
+}
+
+th{
+    font-size: 14pt;
+    font-family:Verdana;
+    
+}
+
+caption{
+    font-size: 20pt;
+    font-family:Verdana;
+    font-style: bold;
+
+}
+
+thead tr:hover, tfoot:hover{
+    background-color: chocolate;
+}
+
+tbody tr:hover{
+    background-color: coral;
+}
+
+.centralizado{
+    text-align: center;
+}
+
+/*Não há distinção entre as colunas*/
+tbody tr td{
+    text-align: center;
+}
+
+/**
+tr:nth-child(3n+0){an+b
+    background-color: yellow;
+}**/
