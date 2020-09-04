@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8>">
+    <meta name="viewport" content="width=device-width,
+     initial-scale=1, shrink-to-fit=no">
+
+    <title>Cadastro de usuários</title>
+
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+
+</head>
+
+<body>
+    <h1>Cadastro de Usuário</h1>
+
+    <!--Encapsular elementos-->
+    <form method="get" action="validar.html">
+        <!--Tipo de entrada de dado-->
+
+    <div class="form group">
+       <label for="nome">Nome:</label>
+       <input type="text" name="Nome" id="nome" placeholder="Nome da pessoa" class="form-control">
+    </div>
+
+    <div class="form group">
+        <label for="usuario">Usuário:</label>
+        <input type="text" name="Usuario" id="usuario" placeholder="Usuário/Apelido" class="form-control">
+     </div>
+
+    <div class="form group">
+      <label for="email">E-mail:</label>
+      <input type="email" name="Email" id="email" placeholder="E-mail" class="form-control">
+    </div>
+
+    <div class="form group" >
+        <label for="datanasc">Data de nascimento:</label>
+        <input type="date" name="datanascimento" id="datanasc" class="form-control">
+      </div>
+
+    <div>
+        <label>Sexo:</label>
+
+        <div class="form group form-check">
+        <input type="radio" name="sexo"  id="feminino" value="F" class="form-check-input">
+        <label for ="feminino" class="form-check-label">Feminino</label>
+        </div>
+
+        <div class="form group form-check">
+        <input type="radio" name="sexo"  id="masculino" value="M" class="form-check-input"> 
+        <label for ="masculino" class="form-check-label">Masculino</label>
+        </div>
+
+        <div class="form group form-check">
+        <input type="radio" name="sexo"  id="naoinfo" value="N" class="form-check-input">
+        <label for ="naoinfo" class="form-check-label">Não Informar</label>
+        </div>
+
+        
+
+    </div>
+
+    <div>
+        <!--Inserir foto de perfil -->
+    </div>
+
+    <div>
+
+        <label>Gêrenos de Música de interesse:</label>
+
+        <div class="form group form-check">    
+            <input type="checkbox" name="POP" id="pop" class="form-check-input">
+            <label for="pop" class="form-check-label">Pop</label>
+        </div>
+
+        <div class="form group form-check">       
+            <input type="checkbox" name="Rock" id="rock" class="form-check-input">
+            <label for="rock" class="form-check-label">Rock</label>
+        </div class="form group form-check">
+
+        <div class="form group form-check">       
+            <input type="checkbox" name="Indie" id="indie" class="form-check-input">
+            <label for="indie" class="form-check-label">Indie</label>
+        </div>
+
+        <div class="form group form-check">       
+            <input type="checkbox" name="Sertanejo" id="sertanejo" class="form-check-input">
+            <label for="sertanejo" class="form-check-label">Sertanejo</label>
+        </div>
+
+    </div>
+
+
+
+        
+       <input type="submit" value="Confirmar" class="btn btn-outline-success btn-lg">
+       <input type="reset" value="Limpar" class="btn btn-outline-danger btn-lg">
+    
+
+
+
+
+    </form>
+    
+</body>
+</html>
