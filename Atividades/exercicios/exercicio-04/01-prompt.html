@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8>">
+    <meta name="viewport" content="width=device-width,
+     initial-scale=1, shrink-to-fit=no">
+
+    <title>Introdução ao JS</title>
+
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <!--Função para executar quando for chamada-->
+    <script>
+        'use strict'
+
+        /*Simulando classe*/
+        function Pessoa(nome, nick, idade, email, musica){
+            this.nome = nome;
+            this.nick = nick;
+            this.idade = idade;
+            this.email = email;
+            this.musica = musica;
+        }
+       
+        function carregarDados(){
+            const nome = window.prompt('Insira seu nome completo: ');
+            const nick = window.prompt('Insira um apelido: ');
+            const idade = window.prompt('Insira sua idade: ');
+            const email = window.prompt('Insira seu e-mail: ');
+            const musica = window.prompt('Insira uma musica que voce gosta: ');
+
+            const pessoa = new Pessoa(nome, nick, idade, email, musica);
+
+
+             
+            document.getElementById("dados").innerHTML = 'Nome: ' + pessoa.nome + '  - Apelido: ' + pessoa.nick +
+             ' - Idade: ' + pessoa.idade + ' - E-mail: ' + pessoa.email + " - Musica: " + pessoa.musica;  
+          
+
+        }
+    </script>
+
+</head>
+
+<body>
+   
+
+
+    <script> 
+      /** Manipular todo documento html**/
+      document.write('Olá! Seja bem-vindo(a)!');
+    </script>
+
+    <div id="dados">
+    </div>
+
+
+    <!--onclick, ação ao clicar no botão, invocar a função-->
+    <input type="button" value="carregar" onclick="carregarDados()">
+
+
+  
+
+
+</body>
+
+
+
+
+</html>
