@@ -42,6 +42,30 @@
           
 
         }
+
+        function carregarDadosDoForm(){
+            const nome = document.frmDados.nome.value;
+            const sobrenome = document.frmDados.sobrenome.value;
+
+            const pessoa = new Pessoa(nome, sobrenome);
+            console.log;
+
+            window.alert(`Dados carregado com sucesso: ${nome} ${sobrenome}`);
+        
+            let obj= {
+                name:nome,
+                lastname: sobrenome,
+                adress: {
+                    street: '5th avenue'
+                }
+            }
+
+            console.log(obj);
+        
+        
+        }
+
+
     </script>
 
 </head>
@@ -55,12 +79,21 @@
       document.write('Olá! Seja bem-vindo(a)!');
     </script>
 
-    <div id="dados">
-    </div>
+    <div id="dados"></div>
+
+
+    <form action="post" name="frmDados">
+        <input type="text" name="nome">
+        <input type="text" name="sobrenome">
+
+
+    </form>
 
 
     <!--onclick, ação ao clicar no botão, invocar a função-->
     <input type="button" value="carregar" onclick="carregarDados()">
+
+    <input type="button" value="carregar do formulário" onclick="carregarDadosDoForm()">
 
 
   

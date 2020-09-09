@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8>">
+    <meta name="viewport" content="width=device-width,
+     initial-scale=1, shrink-to-fit=no">
+
+  <!-- CSS -->
+  <style type="text/css">
+
+    .flex{
+
+        display:flex;
+        flex-direction: row;
+        flex-flow: row wrap;
+        -webkit-margin-bottom-collapse: 20px;
+        justify-content: center;
+    }
+
+  </style>
+
+  
+    <title>Cadastro de Músicas</title>
+
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <script>
+'use strict'
+        function Musica(nome, compositor, cantor, album, genero, data){
+            this.nome = nome;
+            this.compositor = compositor;
+            this.cantor = cantor;
+            this.album = album;
+            this.genero = genero;
+            this.data = data;
+
+        }
+
+        function carregarDadosDoForm(){
+            const nome = document.frm.nomeMusica.value;
+            const compositor = document.frm.nomeCompositor.value;
+            const cantor = document.frm.nomeCantor.value;
+            const album = document.frm.nomeAlbum.value;
+            const genero = document.frm.genero.value;
+            const data = document.frm.dataLanc.value;
+
+
+            const musica = new Musica(nome, compositor, cantor, album, genero, data);
+           
+
+            window.alert(`Dados carregado com sucesso: ${nome} ${compositor} ${cantor} ${album} ${genero} ${data}`);
+    
+        
+        }
+
+
+
+    </script>
+
+
+
+
+
+
+
+</head>
+
+<body>
+
+    <div class="flex">
+            <h1>Cadastro de Música</h1>
+
+    </div>
+
+    <form action="post" name="frm">
+        <div class="row">
+
+
+          <div class="col">
+              <div>
+                <label for="nomeMusica">Nome: </label>
+                <input type="text" class="form-control" id="nomeMusica" placeholder="Nome da Música">
+                <br>
+                <label for="nomeCantor">Nome Cantor(a): </label>
+                <input type="text" class="form-control" id="nomeCantor" placeholder="Cantor(a)">
+                <br>
+                <label>Gênero:</label>
+
+            <div class="form group form-check">
+            <input type="radio" name="genero"  id="Pop" value="pop" class="form-check-input">
+            <label for ="Pop" class="form-check-label">Pop</label>
+            </div>
+
+            <div class="form group form-check">
+            <input type="radio" name="genero"  id="Rock" value="rock" class="form-check-input"> 
+            <label for ="Rock" class="form-check-label">Rock</label>
+            </div>
+
+            <div class="form group form-check">
+            <input type="radio" name="genero"  id="Indie" value="indie" class="form-check-input">
+            <label for ="Indie" class="form-check-label">Indie</label>
+            </div>
+
+
+
+            </div>
+        </div>
+
+
+
+          <div class="col">            
+                <label for="nomeCantor">Nome Compositor(a): </label>
+                <input type="text" class="form-control" id="nomeCompositor" placeholder="Compositor(a)">    
+                <br>
+                <label for="nomeCantor">Nome Álbum: </label>
+                <input type="text" class="form-control" id="nomeAlbum" placeholder="Álbum">
+                <br>
+                <label for="dataLanc">Data de Lançamento:</label>
+                <input type="date" name="datalanc" id="dataLanc" class="form-control">
+         
+            </div>
+
+
+        </div>
+        <br>
+        <div class="flex">
+            <input type="button" value="Confirmar" class="btn btn-outline-success btn-lg" onclick="carregarDadosDoForm()" >
+            <input type="button" value="Excluir" class="btn btn-outline-danger btn-lg">
+        </div>
+        
+      </form>
+
+ 
+
+
+
+
+
+
+
+
+
+</body>
+
+
+
+</html>   
