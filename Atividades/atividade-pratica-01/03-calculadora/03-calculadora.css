@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
+*{
+  padding: 0;
+  margin:0;
+  outline: none;
+  font-family: 'Dancing Script', sans-serif;
+  font-weight: 400;
+  font-size: 22px;
+}
+
+body{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: lightslategrey;
+  
+}
+input{
+  margin: 2px;
+  border: none;
+  border-radius: 3px;
+}
+input[type=text]{
+  width: calc(100% - 4px);
+  height: 40px;
+}
+
+input[type=button],[type=reset]{
+  width: 100px;
+  height: 50px;
+  cursor: pointer;
+}
+div#calculadora{
+  box-shadow: 0 0 20px black;
+  border-bottom-right-radius: 45px;
+  border-bottom-left-radius: 45px;
+}
+
+div#calculadora div{
+  display: flex;
+
+}
+
+div#quinto input:nth-child(3){
+  background: tomato;
+  width: 204px;
+  border-bottom-right-radius: 45px;
+
+}
+
+div#quinto input:nth-child(1){
+  background: blue;
+
+  border-bottom-left-radius: 45px;
+
+}
+ 
+div#calculadora label{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  background: whitesmoke;
+  font-size: 40pt;
+  
+
+  
+}
+div#calculadora div input:nth-child(4){
+  background: plum;
+}
+
+input[type=button]:hover, [type=reset]:hover{
+  filter:brightness(50%);
+}
+
+input[type=button]:active, [type=reset]:active{
+  transform:scale(0.9);
+}
+
+/** Referência: https://www.youtube.com/watch?v=QwVt1wm7wRs&ab **/

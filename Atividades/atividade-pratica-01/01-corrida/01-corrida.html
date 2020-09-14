@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Competição de Rolimã!</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <script src="01-corrida.js"></script>
+    
+</head>
+<body>
+
+  <div  class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-4">Competição de carrinhos de rolimã</h1>
+      <p class="lead">Insira os participantes e tempos e depois verifique os ganhador da corrida!</p>
+    </div>
+
+
+
+  </div>
+
+
+
+
+
+  <form action="post" name="frm">
+        <div class="row">
+
+
+          <div class="col">
+              <div>
+                <label for="nome">Nome do Competidor: </label>
+                <input type="text" id="nome" name="nome" class="form-control" placeholder="Nome">
+                <br>
+  
+              </div>
+            </div>
+            <div class="col">
+              <div>
+                <label for="tempo">Tempo em segundos: </label>
+                <input type="number" id="tempo" name="tempo" class="form-control" placeholder="Tempo">
+                <br>
+  
+              </div>
+            </div>
+ 
+          </div>
+          <div>
+            <input type="button" name="inserir" id="inserir" value="Cadastrar"
+              class="btn btn-outline-success btn-lg" onclick="inserirCompetidor()">
+
+
+          <br>
+          </div>
+
+          </form> 
+         
+        
+   
+    <div id="d" class="form-group" style="display:none">
+      <table id="tdados" class="table table-sm">
+        <caption>Relação dos competidores</caption>
+        <thead class="thead-light">
+          <tr>
+            <th>Largada</th>
+            <th>Competidor(a)</th>
+            <th>Tempos</th>
+          </tr>
+        </thead>
+      </table>
+
+      <div class="row">
+        <div class="col">
+          <input id="finalizar" class="btn btn-outline-success custom-control btn-lg" type="button"
+          value="Verificar Resultado" onclick="insereResultado()">
+        </div>
+        <div class="col">
+          <input type="button" name="apagar" id="apagar" value="Apagar"
+          class="btn btn-outline-danger btn-lg" onclick="recarregar()">
+        </div>
+      </div>
+
+    
+
+
+    </div>
+
+
+    <div id="res" style="display:none" class="form-group">
+      <h2>Resultado:</h2>
+      <table id="tresult" class="table table-sm">
+        <caption>Resultado da prova</caption>
+        <thead class="thead-light">
+          <tr>
+            <th>Posição</th>
+            <th>Largada</th>
+            <th>Competidor(a)</th>
+            <th>Tempos</th>
+            <th>Resultado</th>
+          </tr>
+        </thead>
+      </table>
+      <div>
+        <input type="button" value="Nova Competição"
+        class="btn btn-outline-success custom-control btn-lg" onclick="recarregar()">
+      </div>
+  
+    </div>
+  
+</body>
+</html>

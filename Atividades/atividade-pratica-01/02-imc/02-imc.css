@@ -1,0 +1,16 @@
+body {
+    
+    text-align: center;
+    justify-content: center;
+    margin-top: 10pt;
+    margin-left: 100pt;
+    margin-right: 100pt;
+    background-color: ghostwhite;
+    font-family: Lucida;
+}    
+
+h1{
+    margin: 10pt;
+    font-style: bold;
+    font-family: Lucida;     
+}

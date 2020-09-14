@@ -15,26 +15,9 @@ th, td{
 th{
     font-size: 14pt;
     font-family:Verdana;
-    
-}
 
-caption{
-    font-size: 20pt;
-    font-family:Verdana;
-    font-style: bold;
-
-}
-
-thead tr:hover, tfoot:hover{
-    background-color: chocolate;
-}
-
-tbody tr:hover{
-    background-color: coral;
-}
-
-.centralizado{
     text-align: center;
+    
 }
 
 /*Não há distinção entre as colunas*/

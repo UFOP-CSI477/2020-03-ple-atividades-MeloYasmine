@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escala Richter</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="./04-escala.css">
+    
+</head>
+
+
+<body>
+<form action="post" name="formulario">
+
+    <h1>Escala Richter</h1>
+
+        <div id="entradas">
+            
+            <div class="form-group">
+            <label for="amplitude">Informe a amplitude:</label>
+            <input type="number" class="form-control form-control-sm" id="amplitude" aria-describedby="amp" placeholder="amplitude">
+            <small id="amp" class="form-text text-muted">em milímetros</small>
+            </div>
+
+            <div class="form-group">
+                <label for="tempo">Informe o Intervalo de tempo:</label>
+                <input type="number" class="form-control form-control-sm" id="tempo" aria-describedby="tmp" placeholder="Intervalo de tempo">
+                <small id="tmp" class="form-text text-muted">em segundos</small>
+            </div>
+        </div>   
+
+        <h2 id="resultado"></h2>
+        <div id="calcular">
+            <input type="button" class="btn btn-success" value="Calcular" onclick="calcular()">
+        </div>
+        <div id="novo" style="display: none;">
+            <input type="button" class="btn btn-success" value="Calcular Novamente" onclick="recarregar()">
+        </div>
+        
+        <div id="divTabela"  class="form-group">
+            <h2 id="titulo"></h2>
+            <table id="tabela" class="table table-bordered table-sm">
+                <caption>Escala Richter e Efeitos</caption>
+              <thead class="thead-light">
+                <tr>
+                  <th>Magnitude de Richter</th>
+                  <th>Efeitos</th>        
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr id="1">
+                    <td>Menor que 3.5</td>
+                    <td>Geralmente não sentido, mas gravado.</td>
+               </tr>
+
+               <tr id="2">
+                    <td>Entre 3.5 e 5.4</td>
+                    <td>Ás vezes sentido, mas raramente causa danos.</td>
+                </tr>
+
+                <tr id="3">
+                    <td>Entre 5.5 e 6.0</td>
+                    <td>No máximo causa pequenos danos a prédios bem construídos, 
+                        mas pode danificar certamente casas mal construídas em regiões próximas.
+                    </td>
+                </tr>
+
+                <tr id="4">
+                    <td>Entre 6.1 e 6.9</td>
+                    <td>Pode ser destrutivo em áreas em torno de até 100km do epicentro.</td>
+                </tr>
+
+                <tr id="5">
+                    <td>Entre 7.0 e 7.9</td>
+                    <td>Grande terremoto. Pode causar sérios danos numa grande faixa.</td>
+                </tr>
+               
+                <tr id="6">
+                    <td>8.0 ou mais</td>
+                    <td>Enorme terremoto. Pode causar graves danos em muitas áreas mesmo que 
+                        estejam a centenas de quilômetros.
+                    </td>
+                </tr>
+
+              </tbody>
+              
+            </table>
+
+
+
+
+
+
+
+</form>
+
+
+
+<script src="04-escala.js"></script>
+
+
+</body>
+
+
+
+
+</html>
