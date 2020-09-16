@@ -1,0 +1,28 @@
+body{
+    margin-left: 50pt;
+    margin-right: 50pt;
+    margin-top: 20pt;
+    background-image: linear-gradient(to right, #cfedfb, #d8bfd8, #ffb6c1, #fff0f5, #e6e6fa);
+
+}
+
+input[type='submit']{
+    margin-left: 10pt;
+    margin-right: 10pt;
+    
+}
+
+
+.flex{
+
+    display:flex;
+    flex-direction: row;
+    flex-flow: row wrap;
+    -webkit-margin-bottom-collapse: 20px;
+    justify-content: center;
+
+}
+
+h1{
+    margin-bottom: 50pt;
+}
