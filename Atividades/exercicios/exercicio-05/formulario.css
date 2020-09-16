@@ -6,7 +6,7 @@ body{
 
 }
 
-input[type='submit']{
+input[type='submit'], [type='reset']{
     margin-left: 10pt;
     margin-right: 10pt;
     

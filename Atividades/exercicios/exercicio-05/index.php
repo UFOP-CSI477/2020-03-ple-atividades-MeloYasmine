@@ -36,7 +36,7 @@
           <div class="col">
               <div>
                 <label for="nome">Nome: </label>
-                <input type="text" class="form-control" name="nome" id="nome" placeholder="Nome" required> 
+                <input type="text" class="form-control" name="nome" id="nome" placeholder="Nome"> 
                 <br>
   
                 <label for="senha">Senha: </label>
@@ -49,22 +49,11 @@
 
 
 
-          <div class="col">            
-                <label for="email">E-mail: </label>
-                <input type="email" class="form-control" name="email" id="email" placeholder="E-mail">    
-                <br>
-                <label for="dataNasc">Data de nascimento:</label>
-                <input type="date" name="dataNasc" name="dataNasc" id="dataNasc" class="form-control">
-
-         
-            </div>
-
-
         </div>
         <br>
         <div class="flex">
-            <input type="submit" name="btnAcessar" value="Confirmar" class="btn btn-outline-success btn-lg" onclick="vMusica()">
-            <input type="submit" name="btnLimpar" value="Excluir" class="btn btn-outline-danger btn-lg">
+            <input type="submit" name="btnAcessar" value="Confirmar" class="btn btn-outline-success btn-lg">
+            <input type="reset" name="btnLimpar" value="Excluir" class="btn btn-outline-danger btn-lg">
         </div>
         
       </form>
