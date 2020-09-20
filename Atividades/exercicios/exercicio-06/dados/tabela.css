@@ -1,0 +1,16 @@
+body{
+    display: flex;
+    margin-left: 100pt;
+    margin-right: 100pt;
+    margin-top: 10pt;
+    justify-content: center;
+}
+
+table{
+    text-align: center;
+    font-family:Verdana;
+}
+
+tr:nth-child(2n+0){
+   background-color: aqua;
+}
