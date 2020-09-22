@@ -14,7 +14,7 @@
 
    // $sql="DROP TABLE produtos";
 
-   $sql= "CREATE TABLE [IF NOT EXISTS] database.produtos(
+   $sql= "CREATE TABLE database.produtos(
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         nome VARCHAR(100) NOT NULL,
         un VARCHAR(3) NOT NULL
