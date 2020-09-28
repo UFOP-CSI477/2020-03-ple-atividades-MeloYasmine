@@ -15,39 +15,17 @@ use Illuminate\Support\Facades\Route;
 
 //retorno para modelo
 use App\Models\Produto;
+use App\Models\Estado;
+use App\Http\Controllers\EstadoController;
+use App\Http\Controllers\ProdutoController;
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('principal');
+})->name('principal');
 
-Route::get('/ola', function(){
-    return 'Olá, mundo';
-});
+Route::resource('/estados', EstadoController::class);
 
-Route::get('/produtos/todos', function(){
-
-    $produtos = Produto::all();
-
-   
-
-    return view('produtos', ['dados' => $produtos]);
-
-});
-
-//Pesquisar a partir  do modelo a variavel
-Route::get('/produtos/{id}', function($id){
-
-    $produto = Produto::find($id);
-
-    if($produto == null){
-        return 'ID inválido';
-    }
-
-    return view('produto', ['dados' => $produto]);
-
-
-
-});
+Route::resource('/produtos', ProdutoController::class);
 
 
 

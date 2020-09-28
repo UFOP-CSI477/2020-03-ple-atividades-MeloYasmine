@@ -10,7 +10,7 @@
 
 
     
-    <title>Tabela Produtos</title>
+    <title>Tabela Estados</title>
 </head>
 <body>
 
@@ -20,7 +20,7 @@
   
     <div class="container">
 
-        <h1 class="mx-auto" style="width: 200px;" >Produtos</h1>
+        <h1 class="mx-auto" style="width: 200px;" >Estados</h1>
 
 
         <table class="table table-bordered table-sm">
@@ -28,20 +28,20 @@
         <tr>
         <th>ID</th>
         <th>Nome</th>
-        <th>Unidade</th>
+        <th>Sigla</th>
         </tr>
     </thead>
 
     <tbody>
 
-      <!--Tratar quando for exibir por id-->
+    <!--Tratar quando for exibir por id-->
     
         @foreach ($dados as $aux)
 
             <tr>
             <td>{{$aux['id']}}</td>
             <td>{{$aux['nome']}}</td>
-            <td>{{$aux['un']}}</td>
+            <td>{{$aux['sigla']}}</td>
             </tr>    
         
         @endforeach
