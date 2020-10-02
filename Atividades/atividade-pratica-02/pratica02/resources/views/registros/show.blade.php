@@ -65,13 +65,13 @@
         <td>{{$registro->descricao}}</td>
         <td>{{$registro->datalimite}}</td>
         
-            @if($registro->tipo == 1){
+            @if($registro->tipo == 1)
                 <td class="table-primary">PREVENTIVA</td>
-            }@elseif($registro->tipo == 2){
+            @elseif($registro->tipo == 2)
                 <td class="table-warning">CORRETIVA</td>
-            }@elseif($registro->tipo == 3){
+            @elseif($registro->tipo == 3)
                 <td class="table-danger">URGENTE</td>
-            }
+            
             @endif
 
 

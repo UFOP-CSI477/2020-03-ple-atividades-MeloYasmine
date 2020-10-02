@@ -46,6 +46,7 @@
     <tr>
     <th>ID</th>
     <th>Nome</th>
+    <th>E-mail</th>
     </tr>
 </thead>
 
@@ -64,6 +65,7 @@
          
         
         </td>
+        <td>{{$aux->email}}</td>
         </tr>    
     
     @endforeach

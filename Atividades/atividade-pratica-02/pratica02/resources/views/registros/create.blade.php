@@ -40,7 +40,8 @@
             <div class="form-group">
                 <label for="equipamento_id">Equipamento: </label>             
                   <select name="equipamento_id" id="equipamento_id" class="form-control" required="required">
-                      <option>SELECIONAR</option>
+                      
+                    
                       @foreach($equipamentos as $equipamento)
                          <option value="{{$equipamento->id}}">{{$equipamento->nome}}</option>
                        @endforeach
@@ -51,12 +52,11 @@
           <div class="col-md-6">
             <div class="form-group">
                 <label for="user_id">Usuário:</label>
-                <select name="user_id" id="user_id" class="form-control" required="required">
-                   
-                    @foreach($users as $user)
-                    <option value="{{$user->id}}">{{$user->name}}</option>
-                    @endforeach
-                  </select>
+               
+            <input value="{{Auth::user()->id}}" required="required" type="text" class="form-control" readonly=“true” id="user_id" placeholder="ID do usuário" name="user_id">
+                
+                
+        
                 
               </div>
           </div>
@@ -75,7 +75,7 @@
           <div class="col-md-6">
             <div class="form-group">
                 <label for="datalimite">Data Limite:</label>
-                <input required="required" type="date" class="form-control" id="datalimite" placeholder="" name="datalimite">
+                <input required="required" min="now()" type="date" class="form-control" id="datalimite" placeholder="" name="datalimite">
                 
               </div>
           </div>
@@ -90,7 +90,7 @@
                     
                     <option value="1">PREVENTIVA</option>
                     <option value="2">CORRETIVA</option>
-                    <option value="3">PREVENTIVA</option>
+                    <option value="3">URGENTE</option>
                     
                   </select>
                 </div>

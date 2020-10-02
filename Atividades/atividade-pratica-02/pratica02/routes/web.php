@@ -32,7 +32,7 @@ Route::get('/', function () {
 
 Route::resource('/equipamentos', EquipamentoController::class);
 
-Route::resource('/users', UserController::class);
+Route::resource('/users', UserController::class)->middleware('auth');
 
 Route::resource('/registros', RegistroController::class);
 
@@ -62,6 +62,10 @@ Route::get('/administrativo', function () {
     }
 
     return view('administrativo', ['equipamentos' => $equipamentos, 'registros' => $registros, 'users' => $users, 'listas'=>$lista]);
-})->name('administrativo');
+})->middleware('auth')->name('administrativo');
 
 
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

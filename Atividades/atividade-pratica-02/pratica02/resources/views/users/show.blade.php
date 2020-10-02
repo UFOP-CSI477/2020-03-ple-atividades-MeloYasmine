@@ -46,6 +46,7 @@
     <tr>
     <th>ID</th>
     <th>Nome</th>
+    <th>E-mail</th>
     <th>created_at</th>
     <th>updated_at</th>
     </tr>
@@ -60,6 +61,7 @@
         <tr>
         <td>{{$user->id}}</td>
         <td>{{$user->name}}</td>
+        <td>{{$user->email}}</td>
         <td>{{$user->created_at}}</td>
         <td>{{$user->updated_at}}</td>
         </tr>    
@@ -67,8 +69,7 @@
     
 </tbody>
 </table>
-<a type="button" class="btn btn-sm btn-outline-success mx-sm-1 mb-1" href="{{route('users.index',)}}">Atualizar</a>
-<a type="button" class="btn btn-sm btn-outline-danger mx-sm-1 mb-1" href="{{route('users.index',)}}">Excluir</a>
+
 <a type="button" class="btn btn-sm btn-outline-info mx-sm-1 mb-1" href="{{route('users.index')}}">Voltar</a>
     </div>
   

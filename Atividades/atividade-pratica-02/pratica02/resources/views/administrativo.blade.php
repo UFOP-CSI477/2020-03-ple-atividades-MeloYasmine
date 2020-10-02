@@ -40,17 +40,17 @@
       <div class="container">
   
         <div class="row">
-          <div class="col-md-4">
+          <div class="col-md-6">
             <div class="card mb-2 shadow-sm text-center">
               <div class="card-body">
                 
                   <h5 class="card-title" style="text-align:center; margin-bottom:20pt;">Manutenções</h5>
                                                   <div class="d-flex justify-content-between align-items-center">
                   <div class="btn-group">
-                    <a type="button" class="btn btn-sm btn-outline-success mx-sm-1 mb-1" href="{{route('registros.index')}}">Visulizar</a>
-                    <a type="button" class="btn btn-sm btn-outline-success mx-sm-1 mb-1" href="{{route('registros.create')}}">Adicionar</a>
-                    <a type="button" class="btn btn-sm btn-outline-success mx-sm-1 mb-1" href="{{route('registros.index')}}">Atualizar</a>
-                    <a type="button" class="btn btn-sm btn-outline-success mx-sm-1 mb-1" href="{{route('registros.index')}}">Excluir</a>
+                    <a type="button" class="btn btn-sm btn-outline-success mx-sm-4 mb-1" href="{{route('registros.index')}}">Visulizar</a>
+                    <a type="button" class="btn btn-sm btn-outline-success mx-sm-4 mb-1" href="{{route('registros.create')}}">Adicionar</a>
+                    <a type="button" class="btn btn-sm btn-outline-success mx-sm-4 mb-1" href="{{route('registros.index')}}">Atualizar</a>
+                    <a type="button" class="btn btn-sm btn-outline-success mx-sm-4 mb-1" href="{{route('registros.index')}}">Excluir</a>
                   </div>
 
               
@@ -59,16 +59,16 @@
             </div>
 
           </div>   
-          <div class="col-md-4">
+          <div class="col-md-6">
               <div class="card mb-2 shadow-sm">
                 <div class="card-body">
                     <h5 class="card-title" style="text-align:center; margin-bottom:20pt;">Equipamentos</h5>
                                                     <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
-                      <a type="button" class="btn btn-sm btn-outline-success mx-sm-1 mb-1" href="{{route('equipamentos.index')}}">Visulizar</a>
-                      <a type="button" class="btn btn-sm btn-outline-success mx-sm-1 mb-1" href="{{route('equipamentos.create')}}">Adicionar</a>
-                      <a type="button" class="btn btn-sm btn-outline-success mx-sm-1 mb-1" href="{{route('equipamentos.index')}}">Atualizar</a>
-                      <a type="button" class="btn btn-sm btn-outline-success mx-sm-1 mb-1" href="{{route('equipamentos.index')}}">Excluir</a>
+                      <a type="button" class="btn btn-sm btn-outline-success mx-sm-4 mb-1" href="{{route('equipamentos.index')}}">Visulizar</a>
+                      <a type="button" class="btn btn-sm btn-outline-success mx-sm-4 mb-1" href="{{route('equipamentos.create')}}">Adicionar</a>
+                      <a type="button" class="btn btn-sm btn-outline-success mx-sm-4 mb-1" href="{{route('equipamentos.index')}}">Atualizar</a>
+                      <a type="button" class="btn btn-sm btn-outline-success mx-sm-4 mb-1" href="{{route('equipamentos.index')}}">Excluir</a>
                     </div>
 
                 
@@ -77,24 +77,7 @@
               </div>
 
             </div>   
-            <div class="col-md-4">
-              <div class="card mb-2 shadow-sm">
-                <div class="card-body">
-                    <h5 class="card-title" style="text-align:center; margin-bottom:20pt;">Usuários</h5>
-                                                    <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                      
-                      <a type="button" class="btn btn-sm btn-outline-success mx-sm-1 mb-1" href="{{route('users.index')}}">Visulizar</a>
-                      
-                     
-                      <a type="button" class="btn btn-sm btn-outline-success mx-sm-1 mb-1" href="{{route('users.create')}}">Adicionar</a>
-                      
-                    </div>
-
-                
-                  </div>
-                </div>
-              </div>
+      
 
             </div>   
         </div>
@@ -122,6 +105,11 @@
             
               <!--Tratar quando for exibir por id-->
             
+              <tr>
+                <td class="table-primary">
+                  <a href="{{route('users.index')}}">Visulizar todas as informações</a>
+                </td>
+              </tr>  
                 @foreach ($users as $user)
             
                     <tr>

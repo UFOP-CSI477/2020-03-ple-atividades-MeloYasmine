@@ -37,9 +37,15 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        User::create($request->all());
-        session()->flash('mensagem', 'Usuário cadastrado com sucesso!');
-        return redirect()->route('administrativo');
+        if(!empty($request->all())){
+            User::create($request->all());
+            session()->flash('mensagem', 'Usuário cadastrado com sucesso!');
+            return redirect()->route('administrativo');
+        }else{
+            session()->flash('mensagem', 'Preencha todos os dados!');
+            return redirect()->route('administrativo');
+        }
+      
     }
 
     /**

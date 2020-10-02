@@ -57,18 +57,18 @@
           <a href="{{route('registros.show', $aux->id)}}">{{$aux->id}}</a>
         </td> 
         <td>{{$aux->datalimite}}</td>
-        <td>
+        
 
-            @if($aux->tipo == 1)
-                PREVENTIVA
-            @elseif($aux->tipo == 2)
-                CORRETIVA
-            @elseif($aux->tipo == 3)
-                URGENTE
+        @if($aux->tipo == 1)
+          <td class="table-primary">PREVENTIVA</td>
+        @elseif($aux->tipo == 2)
+          <td class="table-warning">CORRETIVA</td>
+        @elseif($aux->tipo == 3)
+          <td class="table-danger">URGENTE</td>
+      
+       @endif
 
-            @endif
-
-        </td>
+        
         <td>{{$aux->descricao}}</td>
         <td>{{$aux->equipamento->nome}}</td>
         <td>{{$aux->user->name}}</td>

@@ -3,6 +3,8 @@
 namespace Database\Factories;
 
 use App\Models\Registro;
+use App\Models\Equipamento;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
@@ -23,8 +25,8 @@ class RegistroFactory extends Factory
     public function definition()
     {
         return [
-            'equipamento_id' => $this->faker->numberBetween(1, 20),
-            'user_id' => $this->faker->numberBetween(1, 5),
+            'equipamento_id' => Equipamento::factory(),
+            'user_id' => User::factory(),
             'descricao' => Str::random(10),
             'datalimite' =>$this->faker->date('Y-m-d', 'now'),
             'tipo' => $this->faker->numberBetween(1, 3),

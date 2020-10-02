@@ -6,9 +6,7 @@ use App\Models\Registro;
 use App\Models\Equipamento;
 use App\Models\User;
 use Illuminate\Http\Request;
-use PhpParser\Node\Expr\Cast\String_;
-use Illuminate\Routing;
-
+use Illuminate\Support\Facades\Auth;
 
 use function PHPUnit\Framework\isNull;
 
@@ -43,11 +41,15 @@ class RegistroController extends Controller
      */
     public function create()
     {
-        //
-        $equipamentos = Equipamento::orderBy('nome')->get();
-        $users = User::orderBy('name')->get();
-        return view('registros.create', ['equipamentos' => $equipamentos, 'users' => $users]);
-      
+        
+        if(Auth::check()){ 
+            $equipamentos = Equipamento::orderBy('nome')->get();
+            $users = User::orderBy('name')->get();
+            return view('registros.create', ['equipamentos' => $equipamentos, 'users' => $users]);
+        }else{
+            session()->flash('mensagem', 'Operação não permitida');
+            return redirect()->route('login');
+        }
     }
 
     /**
@@ -59,9 +61,21 @@ class RegistroController extends Controller
     public function store(Request $request)
     {
         //dd($request);
-        Registro::create($request->all());
-        session()->flash('mensagem', 'Registro cadastrado com sucesso!');
-        return redirect()->route('registros.index');
+        if(!empty($request->all())){
+            if(Auth::check()){
+                Registro::create($request->all());
+                session()->flash('mensagem', 'Registro cadastrado com sucesso!');
+                return redirect()->route('registros.index');
+            }else{
+                session()->flash('mensagem', 'Operação não permitida');
+                return redirect()->route('login');
+            }
+
+        }else{
+            session()->flash('mensagem', 'Preencha todos os dados!');
+            return redirect()->route('registros.index');
+        }
+
     }
 
     /**
@@ -71,12 +85,14 @@ class RegistroController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show(Registro $registro)
-    {
-
-
-
-
-        return view('registros.show',['registro' =>$registro]);
+    {       
+            if(Auth::check()){
+                return view('registros.show',['registro' =>$registro]);
+            }else{
+                session()->flash('mensagem', 'Operação não permitida');
+                return redirect()->route('login');
+            }
+            
         
     }
 
@@ -88,11 +104,15 @@ class RegistroController extends Controller
      */
     public function edit(Registro $registro)
     {
-        $equipamentos = Equipamento::get();
-        $users = User::get();
+        if(Auth::check()){
+            $equipamentos = Equipamento::get();
+            $users = User::get();
 
-        return view('registros.edit', ['equipamentos' => $equipamentos, 'users' => $users, 'registro' => $registro]);
-      
+            return view('registros.edit', ['equipamentos' => $equipamentos, 'users' => $users, 'registro' => $registro]);
+        }else{
+            session()->flash('mensagem', 'Operação não permitida');
+            return redirect()->route('login');
+        }
     }
 
     /**
@@ -104,11 +124,16 @@ class RegistroController extends Controller
      */
     public function update(Request $request, Registro $registro)
     {
-        $registro->fill($request->all());
-        $registro->save();
+        if(auth::check()){
+            $registro->fill($request->all());
+            $registro->save();
 
-        session()->flash('mensagem', 'Manutenção atualizada com sucesso!');
-        return redirect()->route('registros.index');
+            session()->flash('mensagem', 'Manutenção atualizada com sucesso!');
+            return redirect()->route('registros.index');
+        }else{
+            session()->flash('mensagem', 'Operação não permitida');
+            return redirect()->route('login');
+        }
     }
 
     /**
@@ -121,11 +146,15 @@ class RegistroController extends Controller
     {
         //
         //Só posso excluir se não tiver manutenções agendadas
-    
+        if(Auth::check()){    
             $registro->delete();
             session()->flash('mensagem', 'Registro excluído com sucesso');
         
-        return redirect()->route('registros.index');
+            return redirect()->route('registros.index');
+        }else{
+            session()->flash('mensagem', 'Operação não permitida');
+            return redirect()->route('login');
+        }
     }
 
     /**
