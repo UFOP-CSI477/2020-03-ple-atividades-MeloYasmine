@@ -33,6 +33,11 @@
   <body>
 
     <h1 class="mx-auto" style="text-align:center;">Área Administrativa</h1>
+    
+  
+         
+  
+
 
 
 
@@ -108,8 +113,13 @@
               <tr>
                 <td class="table-primary">
                   <a href="{{route('users.index')}}">Visulizar todas as informações</a>
-                </td>
-              </tr>  
+                </td> </tr>  
+
+                <tr>
+                <td class="table-primary">    <a  href="{{ route('register') }}" >
+                  Novo Usuário
+                 </a></td>
+                </tr>
                 @foreach ($users as $user)
             
                     <tr>

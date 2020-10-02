@@ -43,9 +43,15 @@ class RegistroController extends Controller
     {
         
         if(Auth::check()){ 
+
+
             $equipamentos = Equipamento::orderBy('nome')->get();
             $users = User::orderBy('name')->get();
             return view('registros.create', ['equipamentos' => $equipamentos, 'users' => $users]);
+
+
+
+            
         }else{
             session()->flash('mensagem', 'Operação não permitida');
             return redirect()->route('login');

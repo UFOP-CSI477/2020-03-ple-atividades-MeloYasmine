@@ -53,12 +53,9 @@
           <div class="col-md-6">
             <div class="form-group">
                 <label for="user_id">Usuário:</label>
-                <select name="user_id" id="user_id" class="form-control">
-                <option value="{{$registro->equipamento->id}}">{{$registro->user->name}}</option>
-                    @foreach($users as $user)
-                    <option value="{{$user->id}}">{{$user->name}}</option>
-                    @endforeach
-                  </select>
+             
+                <input value="{{Auth::user()->id}}" required="required" type="text" class="form-control" readonly=“true” id="user_id" placeholder="ID do usuário" name="user_id">
+                
                 
               </div>
           </div>
@@ -69,7 +66,7 @@
           <div class="col-md-6">
             <div class="form-group">
                 <label for="descricao">Descrição:</label>
-                <input value="{{$registro->descricao}}" type="text" class="form-control" id="descricao" placeholder="Descrição do serviço" name="descricao">
+                <input value={{$registro->descricao}} type="text" class="form-control" id="descricao" placeholder="Descrição do serviço" name="descricao">
                 
               </div>
           </div>
@@ -77,7 +74,7 @@
           <div class="col-md-6">
             <div class="form-group">
                 <label for="datalimite">Data Limite:</label>
-            <input value="{{$registro->datalimite}}"type="date" class="form-control" id="datalimite" placeholder="" name="datalimite">
+            <input value={{$registro->datalimite}} type="date" class="form-control" id="datalimite" placeholder="" name="datalimite">
                 
               </div>
           </div>
