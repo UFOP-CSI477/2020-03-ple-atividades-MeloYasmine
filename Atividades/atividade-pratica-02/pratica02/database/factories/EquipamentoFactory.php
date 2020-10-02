@@ -14,6 +14,7 @@ class EquipamentoFactory extends Factory
      */
     protected $model = Equipamento::class;
 
+    
     /**
      * Define the model's default state.
      *

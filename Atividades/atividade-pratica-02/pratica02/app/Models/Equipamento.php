@@ -9,4 +9,13 @@ class Equipamento extends Model
 {
     //traits 'múltiplas heranças'
     use HasFactory;
+
+    protected $fillable = ['nome'];
+
+    //Um equipamento tem muitas manutenções
+    public function registros(){
+        return $this->hasMany(Registro::class);
+    }
+
+  
 }

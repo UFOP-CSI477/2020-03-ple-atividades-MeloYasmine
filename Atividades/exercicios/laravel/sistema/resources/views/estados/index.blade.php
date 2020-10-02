@@ -2,6 +2,8 @@
 
 @section('conteudo')
 
+<a href="{{route('estados.create')}}">Cadastrar</a>
+
 <div class="container">
 
     <h1 class="mx-auto" style="width: 200px;">Estados</h1>
@@ -13,6 +15,7 @@
     <th>ID</th>
     <th>Nome</th>
     <th>Sigla</th>
+    <th>Exibir</th>
     </tr>
 </thead>
 
@@ -26,7 +29,8 @@
         <td>{{$aux['id']}}</td>
         <td>{{$aux['nome']}}</td>
         <td>{{$aux['sigla']}}</td>
-        </tr>    
+        <td><a href="{{route('estados.show', $aux['id'])}}">Exibir</a></td>    
+        </tr>
     
     @endforeach
 

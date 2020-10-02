@@ -1,6 +1,9 @@
 @extends('principal')
 
 @section('conteudo')
+
+<a href="{{route('produtos.create')}}">Cadastrar</a>
+
 <div class="container">
 
     <h1 class="mx-auto" style="width: 200px;" >Produtos</h1>
@@ -12,6 +15,7 @@
     <th>ID</th>
     <th>Nome</th>
     <th>Unidade</th>
+    <th>Exibir</th>
     </tr>
 </thead>
 
@@ -25,6 +29,7 @@
         <td>{{$aux['id']}}</td>
         <td>{{$aux['nome']}}</td>
         <td>{{$aux['un']}}</td>
+        <td><a href="{{route('produtos.show', $aux['id'])}}">Exibir</a></td> 
         </tr>    
     
     @endforeach

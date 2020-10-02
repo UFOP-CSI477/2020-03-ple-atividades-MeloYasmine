@@ -23,11 +23,11 @@ class RegistroFactory extends Factory
     public function definition()
     {
         return [
-            'equipamento_id' => $this->faker->numberBetween(1, 5),
+            'equipamento_id' => $this->faker->numberBetween(1, 20),
             'user_id' => $this->faker->numberBetween(1, 5),
             'descricao' => Str::random(10),
             'datalimite' =>$this->faker->date('Y-m-d', 'now'),
-            'tipo' => $this->faker->randomNumber(2),
+            'tipo' => $this->faker->numberBetween(1, 3),
 
         ];
     }

@@ -36,10 +36,22 @@
                 </ul>
             
             </nav>
-        </div>
+
+
+        <!--Mensagem-->    
+        @if(session('mensagem'))
+            <!--Alerta bootstrap-->
+            <div class="alert alert-success">
+                {{session('mensagem')}}
+            </div>
+        @endif
+
 
         <!--Contéudo da página-->
         @yield('conteudo')
+        </div>
+
+
 
 
 
