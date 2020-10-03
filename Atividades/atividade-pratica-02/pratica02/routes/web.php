@@ -40,8 +40,22 @@ Route::get('/geral', function () {
 
     $equipamentos = Equipamento::orderBy('nome')->get();
     $registros = Registro::orderBy('datalimite')->get();
+    $equipamentos = Equipamento::orderBy('nome')->get();
+    $registros = Registro::orderBy('datalimite')->get();
+    $users = User::orderBy('name')->get();
 
-    return view('geral', ['equipamentos' => $equipamentos, 'registros' => $registros]);
+    $lista = array();
+    $equi = Equipamento::get();
+    foreach($equi as $e){
+
+        $query = Registro::where('equipamento_id','=', $e->id)->get();
+
+        if(sizeof($query)>0){
+            $lista[$e->nome] = $query;
+        } 
+    }
+
+    return view('geral', ['equipamentos' => $equipamentos, 'registros' => $registros, 'listas' =>$lista]);
 })->name('geral');
 
 Route::get('/administrativo', function () {
@@ -62,7 +76,7 @@ Route::get('/administrativo', function () {
     }
 
     return view('administrativo', ['equipamentos' => $equipamentos, 'registros' => $registros, 'users' => $users, 'listas'=>$lista]);
-})->middleware('auth')->name('administrativo');
+})->name('administrativo');
 
 
 

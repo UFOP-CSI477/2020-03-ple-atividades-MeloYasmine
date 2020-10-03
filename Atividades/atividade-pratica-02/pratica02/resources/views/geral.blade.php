@@ -60,7 +60,74 @@
             </tbody>
             </table>
           </div>
+
           <div class="col-8">
+            <h2 class="mx-auto" style="text-align:center; margin-bottom:20pt; margin-top:20pt;">Manutenção por equipamento</h2>
+            
+
+            @foreach ($listas as $chave => $l)
+
+            <table class="table table-bordered table-sm">
+              <thead class="bg-info">
+             
+              <tr>
+              <td colspan="5" style="text-align:center; font-size:20pt; font-style:italic">{{$chave}}</td>
+              <tr>
+              </thead>
+              <thead class="thead-light">
+              <tr>
+              <th>ID</th>
+              <th>Data Limite</th>
+              <th>descricao</th>
+              <th>equipamento</th>
+              <th>Usuário</th>
+              </tr>
+            </thead>
+            
+            <tbody>
+            
+            <!--Tratar quando for exibir por id-->
+            
+            
+              @foreach ($l as $aux)
+            
+                  <tr>
+                  <td>{{$aux->id}}</td>
+                  <td>{{$aux->datalimite}}</td>
+                  <td>{{$aux->descricao}}</td>
+                  <td>{{$aux->equipamento->nome}}</td>
+                  <td>{{$aux->user->name}}</td>
+                  </tr>    
+              
+              @endforeach
+            
+            </tbody>
+            <tr class="table-info">
+              <td colspan="2">TOTAL</td>
+              <td colspan="3">{{sizeof($l)}}</td>
+            </tr>
+            
+            
+            </table>
+            
+            
+            
+            @endforeach
+
+
+
+          </div>
+
+
+
+
+    </div>
+
+
+        </div>
+          <div class="container">
+        
+          <div class="col">
             <h2 class="mx-auto" style="width: 200px; margin-bottom:20pt">Manutenções</h2>
             <table class="table table-bordered table-sm">
                 <thead class="bg-info">
