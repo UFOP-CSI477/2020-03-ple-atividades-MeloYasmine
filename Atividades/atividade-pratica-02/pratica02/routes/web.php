@@ -76,7 +76,7 @@ Route::get('/administrativo', function () {
     }
 
     return view('administrativo', ['equipamentos' => $equipamentos, 'registros' => $registros, 'users' => $users, 'listas'=>$lista]);
-})->name('administrativo');
+})->middleware('auth')->name('administrativo');
 
 
 
