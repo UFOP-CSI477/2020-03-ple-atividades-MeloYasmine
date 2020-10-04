@@ -44,64 +44,51 @@
                 </div>
             </div>
   
-            <div class="col-md-3">
-              <legend class="col-form-label col-sm-2 pt-0">Tipo Sanguíneo</legend>
+            <div class="col-md-6">
+              <legend class="col-form-label col-sm-2 pt-0">Tipo Sanguíneo: </legend>
               <div class="col-sm-10">
-                <div class="form-check">
-                  <input class="form-check-input" type="radio" name="tipo" id="A+" value="A+" checked>
-                  <label class="form-check-label" for="A+">
-                    A+
-                  </label>
-                </div>
-                <div class="form-check">
-                  <input class="form-check-input" type="radio" name="tipo" id="A-" value="A-">
-                  <label class="form-check-label" for="A-">
-                    A-
-                  </label>
-                </div>
-                <div class="form-check ">
-                  <input class="form-check-input" type="radio" name="tipo" id="B+" value="B+" >
-                  <label class="form-check-label" for="B+">
-                    B+
-                  </label>
+      
+                <div class="form-check form-check-inline">
+                  <input  required="required" class="form-check-input" type="radio" name="tipo" id="A+" value="A+">
+                  <label class="form-check-label" for="A+">A+</label>
                 </div>
 
-                <div class="form-check ">
-                  <input class="form-check-input" type="radio" name="tipo" id="B-" value="B-" >
-                  <label class="form-check-label" for="B-">
-                    B-
-                  </label>
-                </div>
-              </div>
-              <div class="col-md-3">
-
-                <div class="form-check ">
-                  <input class="form-check-input" type="radio" name="tipo" id="AB+" value="AB+" >
-                  <label class="form-check-label" for="AB+">
-                    AB+
-                  </label>
+                <div class="form-check form-check-inline">
+                  <input  required="required" class="form-check-input" type="radio" name="tipo" id="A-" value="A+">
+                  <label class="form-check-label" for="A-">A-</label>
                 </div>
 
-                <div class="form-check ">
-                  <input class="form-check-input" type="radio" name="tipo" id="AB-" value="AB-" >
-                  <label class="form-check-label" for="AB-">
-                    AB-
-                  </label>
+                <div class="form-check form-check-inline">
+                  <input  required="required" class="form-check-input" type="radio" name="tipo" id="B+" value="B+">
+                  <label class="form-check-label" for="B+">B+</label>
                 </div>
 
-                <div class="form-check ">
-                  <input class="form-check-input" type="radio" name="tipo" id="O+" value="O+" >
-                  <label class="form-check-label" for="O+">
-                    O+
-                  </label>
+                <div class="form-check form-check-inline">
+                  <input  required="required" class="form-check-input" type="radio" name="tipo" id="B-" value="B-">
+                  <label class="form-check-label" for="B-">B-</label>
                 </div>
 
-                <div class="form-check ">
-                  <input class="form-check-input" type="radio" name="tipo" id="O-" value="O-" >
-                  <label class="form-check-label" for="O-">
-                    O-
-                  </label>
+                <div class="form-check form-check-inline">
+                  <input  required="required" class="form-check-input" type="radio" name="tipo" id="AB+" value="AB+">
+                  <label class="form-check-label" for="AB+">AB+</label>
                 </div>
+
+                <div class="form-check form-check-inline">
+                  <input  required="required" class="form-check-input" type="radio" name="tipo" id="AB-" value="AB-">
+                  <label class="form-check-label" for="AB-">AB-</label>
+                </div>
+
+                <div class="form-check form-check-inline">
+                  <input  required="required" class="form-check-input" type="radio" name="tipo" id="O+" value="O+">
+                  <label class="form-check-label" for="O+">O+</label>
+                </div>
+
+                <div class="form-check form-check-inline">
+                  <input  required="required" class="form-check-input" type="radio" name="tipo" id="O-" value="O-">
+                  <label class="form-check-label" for="O-">O-</label>
+                </div>
+
+
               </div>
             </div>
                   
