@@ -1,6 +1,14 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AgendamentoController;
+use App\Http\Controllers\PessoaController;
+use App\Http\Controllers\ColetaController;
+use App\Http\Controllers\AreaGeralController;
+use App\Http\Controllers\AreaAdminController;
+use Illuminate\Support\Facades\Auth;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +21,22 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::resource('/pessoas', PessoaController::class)->middleware('auth');
+
+Route::resource('/agendamentos', AgendamentoController::class)->middleware('auth');
+
+Route::resource('/coletas', ColetaController::class)->middleware('auth');;
+
+Route::resource('/areageral', AreaGeralController::class);
+
+Route::resource('/areaadmin', AreaAdminController::class)->middleware('auth');;
+
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('principal');
+})->name('principal');
+
+
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

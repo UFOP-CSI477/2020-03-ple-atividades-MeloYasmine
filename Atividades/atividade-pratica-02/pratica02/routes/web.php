@@ -58,24 +58,18 @@ Route::get('/geral', function () {
     return view('geral', ['equipamentos' => $equipamentos, 'registros' => $registros, 'listas' =>$lista]);
 })->name('geral');
 
+
+Route::resource('welcome', ManutencaoController::class);
+
+
 Route::get('/administrativo', function () {
 
     $equipamentos = Equipamento::orderBy('nome')->get();
     $registros = Registro::orderBy('datalimite')->get();
     $users = User::orderBy('name')->get();
 
-    $lista = array();
-    $equi = Equipamento::get();
-    foreach($equi as $e){
 
-        $query = Registro::where('equipamento_id','=', $e->id)->get();
-
-        if(sizeof($query)>0){
-            $lista[$e->nome] = $query;
-        } 
-    }
-
-    return view('administrativo', ['equipamentos' => $equipamentos, 'registros' => $registros, 'users' => $users, 'listas'=>$lista]);
+    return view('administrativo', ['equipamentos' => $equipamentos, 'registros' => $registros, 'users' => $users]);
 })->middleware('auth')->name('administrativo');
 
 
