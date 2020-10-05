@@ -45,7 +45,7 @@
               <div class="card-body">
                 
                   <h5 class="card-title" style="text-align:center; margin-bottom:20pt;">Manutenções</h5>
-                                                  <div class="d-flex justify-content-between align-items-center">
+                                                  <div class="row d-flex justify-content-center">
                   <div class="btn-group">
                     <a type="button" class="btn btn-sm btn-outline-success mx-sm-1 mb-1" href="{{route('registros.index')}}">Visulizar</a>
                     <a type="button" class="btn btn-sm btn-outline-success mx-sm-1 mb-1" href="{{route('registros.create')}}">Adicionar</a>
@@ -63,7 +63,7 @@
               <div class="card mb-2 shadow-sm">
                 <div class="card-body">
                     <h5 class="card-title" style="text-align:center; margin-bottom:20pt;">Equipamentos</h5>
-                                                    <div class="d-flex justify-content-between align-items-center">
+                                                    <div class="row d-flex justify-content-center">
                     <div class="btn-group">
                       <a type="button" class="btn btn-sm btn-outline-success mx-sm-1 mb-1" href="{{route('equipamentos.index')}}">Visulizar</a>
                       <a type="button" class="btn btn-sm btn-outline-success mx-sm-1 mb-1" href="{{route('equipamentos.create')}}">Adicionar</a>
@@ -81,13 +81,13 @@
               <div class="card mb-2 shadow-sm">
                 <div class="card-body">
                     <h5 class="card-title" style="text-align:center; margin-bottom:20pt;">Usuários</h5>
-                                                    <div class="d-flex justify-content-between align-items-center">
+                                                    <div class="row d-flex justify-content-center">
                     <div class="btn-group">
                       
                       <a type="button" class="btn btn-sm btn-outline-success mx-sm-1 mb-1" href="{{route('users.index')}}">Visulizar</a>
                       
                      
-                      <a type="button" class="btn btn-sm btn-outline-success mx-sm-1 mb-1" href="{{route('users.create')}}">Adicionar</a>
+                      <a type="button" class="btn btn-sm btn-outline-success mx-sm-1 mb-1" href="{{ route('register') }}">Adicionar</a>
                       
                     </div>
 
@@ -95,85 +95,45 @@
                   </div>
                 </div>
               </div>
+            </div>
 
-            </div>   
+
+
         </div>
-
-
-
-
-
-    <div class="container">
-      <div class="">
+      </div>
     </div>
-    <div class="container">
-     
+
+    <div class="album  bg-light " style="align-content: center; ">
+      <div class="container d-flex justify-content-center">
+  
         <div class="row">
-          <div class="col">
-              <h2 class="mx-auto" style="width: 200px; margin-bottom:20pt; margin-top:20pt;">Usuários</h2>
-            <table class="table table-bordered table-sm">
-                <thead class="bg-info">
-                <tr>
-                <th>Nome</th>
-                </tr>
-            </thead>
-            
-            <tbody>
-            
-              <!--Tratar quando for exibir por id-->
-            
-                @foreach ($users as $user)
-            
-                    <tr>
-                    <td>{{$user->name}}</td>
-                    </tr>    
-                
-                @endforeach
-            
-            </tbody>
-            </table>
-
-
-
-            
-            <h2 class="mx-auto" style="width: 200px; margin-bottom:20pt; margin-top:20pt;">Equipamentos</h2>
-            <table class="table table-bordered table-sm">
-              <thead class="bg-info">
-              <tr>
-              <th>Nome</th>
-              </tr>
-          </thead>
-          
-          <tbody>
-          
-            <!--Tratar quando for exibir por id-->
-          
-              @foreach ($equipamentos as $aux)
-          
-                  <tr>
-                  <td>{{$aux['nome']}}</td>
-                  </tr>    
+    
+      <div class="card mb-2 shadow-sm">
+        <div class="card-body">
+            <h5 class="card-title" style="text-align:center; margin-bottom:20pt;">Manutenções por Equipameto</h5>
+                                            <div class="row d-flex justify-content-center">
+            <div class="btn-group">
               
-              @endforeach
-          
-          </tbody>
-          </table>
+              <a type="button" class=" btn btn-sm btn-outline-success mx-sm-1 mb-1 " href="{{route('manutencoes.index')}}">Visulizar</a>
+
+            </div>
+
+        
           </div>
-
-
-
-
-
-
-
-
-          
-
-
-
+        </div>
+    
     </div>
+        </div>
+      </div>
 
- 
+  </div>   
+</div>
+
+
+
+
+
+    
 
     
     </body>

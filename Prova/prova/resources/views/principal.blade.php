@@ -122,13 +122,6 @@
 
 
 
-   @if(session('mensagem'))
-      <div class="alert alert-success">
-        {{session('mensagem')}}
-      </div>
-    @endif
-    
-    @yield('conteudo')
 
 
 
@@ -143,6 +136,15 @@
   
     </div>
   </div>
+
+  
+  @if(session('mensagem'))
+  <div class="alert alert-success">
+    {{session('mensagem')}}
+  </div>
+@endif
+
+@yield('conteudo')
 
   <div class="row mb-2">
     <div class="col-md-6">

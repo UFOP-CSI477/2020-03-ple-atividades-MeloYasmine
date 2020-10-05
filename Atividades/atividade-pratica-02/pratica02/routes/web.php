@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EquipamentoController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\RegistroController;
+use App\Http\Controllers\ManutencaoController;
 
 use Illuminate\Support\Facades\Auth;
 
@@ -29,47 +30,26 @@ Route::get('/', function () {
 })->name('principal');
 
 
-
 Route::resource('/equipamentos', EquipamentoController::class);
 
 Route::resource('/users', UserController::class)->middleware('auth');
 
 Route::resource('/registros', RegistroController::class);
 
+
+Route::resource('/manutencoes', ManutencaoController::class);
+
 Route::get('/geral', function () {
 
     $equipamentos = Equipamento::orderBy('nome')->get();
     $registros = Registro::orderBy('datalimite')->get();
-    $equipamentos = Equipamento::orderBy('nome')->get();
-    $registros = Registro::orderBy('datalimite')->get();
-    $users = User::orderBy('name')->get();
 
-    $lista = array();
-    $equi = Equipamento::get();
-    foreach($equi as $e){
-
-        $query = Registro::where('equipamento_id','=', $e->id)->get();
-
-        if(sizeof($query)>0){
-            $lista[$e->nome] = $query;
-        } 
-    }
-
-    return view('geral', ['equipamentos' => $equipamentos, 'registros' => $registros, 'listas' =>$lista]);
+    return view('geral', ['equipamentos' => $equipamentos, 'registros' => $registros]);
 })->name('geral');
 
 
-Route::resource('welcome', ManutencaoController::class);
-
-
 Route::get('/administrativo', function () {
-
-    $equipamentos = Equipamento::orderBy('nome')->get();
-    $registros = Registro::orderBy('datalimite')->get();
-    $users = User::orderBy('name')->get();
-
-
-    return view('administrativo', ['equipamentos' => $equipamentos, 'registros' => $registros, 'users' => $users]);
+    return view('administrativo');
 })->middleware('auth')->name('administrativo');
 
 

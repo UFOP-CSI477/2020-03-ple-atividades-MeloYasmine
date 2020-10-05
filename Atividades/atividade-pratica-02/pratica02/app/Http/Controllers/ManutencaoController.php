@@ -4,9 +4,18 @@ namespace App\Http\Controllers;
 
 use App\Models\Equipamento;
 use App\Models\Registro;
+
+use App\Http\Controllers\EquipamentoController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\RegistroController;
+
+use App\Models\User;
+
+
+
 use Illuminate\Http\Request;
 
-class RelatorioRegistroController extends Controller
+class ManutencaoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,27 +24,22 @@ class RelatorioRegistroController extends Controller
      */
     public function index()
     {
-        //
 
+        $equipamentos = Equipamento::orderBy('nome')->get();
+        $registros = Registro::orderBy('datalimite', 'asc')->get();
         $lista = array();
-
-        $equipamentos = Equipamento::get();
-
-        foreach ($equipamentos as $equipamento) {
-
-            $query =  Registro::where('equipamento_id', '=', $equipamento->id)->get();
-            // echo sizeof($query);
-
-
-
-            if (sizeof($query) > 0) {
-
-
-                $lista[$equipamento->nome] = $query;
-            }
+        $equi = Equipamento::get();
+        foreach($equi as $e){
+    
+            $query = Registro::where('equipamento_id','=', $e->id)->get();
+    
+            if(sizeof($query)>0){
+                $lista[$e->nome] = $query;
+            } 
         }
+    
+        return view('manutencoes.index', ['equipamentos' => $equipamentos, 'registros' => $registros, 'listas' =>$lista]);
 
-        return view('welcome', ['lista' => $lista]);
     }
 
     /**

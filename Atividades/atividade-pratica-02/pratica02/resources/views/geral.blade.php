@@ -36,7 +36,7 @@
     <div class="container">
         <h1 class="mx-auto" style="width: 200px; margin-bottom:40pt">Área Geral</h1>
         <div class="row">
-          <div class="col">
+          <div class="col-4">
               <h2 class="mx-auto" style="width: 200px; margin-bottom:20pt">Equipamentos</h2>
             <table class="table table-bordered table-sm">
                 <thead class="bg-info">
@@ -61,73 +61,8 @@
             </table>
           </div>
 
-          <div class="col-8">
-            <h2 class="mx-auto" style="text-align:center; margin-bottom:20pt; margin-top:20pt;">Manutenção por equipamento</h2>
-            
-
-            @foreach ($listas as $chave => $l)
-
-            <table class="table table-bordered table-sm">
-              <thead class="bg-info">
-             
-              <tr>
-              <td colspan="5" style="text-align:center; font-size:20pt; font-style:italic">{{$chave}}</td>
-              <tr>
-              </thead>
-              <thead class="thead-light">
-              <tr>
-              <th>ID</th>
-              <th>Data Limite</th>
-              <th>descricao</th>
-              <th>equipamento</th>
-              <th>Usuário</th>
-              </tr>
-            </thead>
-            
-            <tbody>
-            
-            <!--Tratar quando for exibir por id-->
-            
-            
-              @foreach ($l as $aux)
-            
-                  <tr>
-                  <td>{{$aux->id}}</td>
-                  <td>{{$aux->datalimite}}</td>
-                  <td>{{$aux->descricao}}</td>
-                  <td>{{$aux->equipamento->nome}}</td>
-                  <td>{{$aux->user->name}}</td>
-                  </tr>    
-              
-              @endforeach
-            
-            </tbody>
-            <tr class="table-info">
-              <td colspan="2">TOTAL</td>
-              <td colspan="3">{{sizeof($l)}}</td>
-            </tr>
-            
-            
-            </table>
-            
-            
-            
-            @endforeach
-
-
-
-          </div>
-
-
-
-
-    </div>
-
-
-        </div>
-          <div class="container">
         
-          <div class="col">
+          <div class="col-8">
             <h2 class="mx-auto" style="width: 200px; margin-bottom:20pt">Manutenções</h2>
             <table class="table table-bordered table-sm">
                 <thead class="bg-info">
@@ -150,13 +85,14 @@
                     <td>{{$registro->datalimite}}</td>                    
                     <td>{{$registro->equipamento->nome}}</td>
                     <td>{{$registro->user->name}}</td>
-                    @if (($registro->tipo)==1)
-                        <td>Preventiva</td>
-                    @elseif(($registro->tipo)==2)
-                        <td>Corretiva</td>
-                    @elseif(($registro->tipo)==3)
-                        <td>Urgente</td>  
-                    @endif            
+                    @if($registro->tipo == 1)
+                    <td class="table-primary">PREVENTIVA</td>
+                  @elseif($registro->tipo == 2)
+                    <td class="table-warning">CORRETIVA</td>
+                  @elseif($registro->tipo == 3)
+                    <td class="table-danger">URGENTE</td>
+                
+                 @endif         
                     <td>{{$registro->descricao}}</td>
                     
                     </tr>    
