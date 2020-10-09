@@ -30,7 +30,7 @@
 
   </head>
   <body >
-    <form  action="{{route('registros.update', $registro->id)}}" method="post" style="border-style:dashed; margin:20px; border-radius: 10px;">
+    <form  action="{{route('registros.update', $registro->id)}}" files="true"  method="post" style="border-style:dashed; margin:20px; border-radius: 10px;">
         @csrf
         @method('PUT')
     

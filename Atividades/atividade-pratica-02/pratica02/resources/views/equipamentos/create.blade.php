@@ -39,9 +39,11 @@
           <div class="col-md-6">
             <div class="form-group">
                 <label for="nome">Nome: </label>
-                <input required="required" type="text" class="form-control" id="nome" placeholder="nome do equipamento" name="nome">
+                <input required="required" type="text" class="form-control" id="nome" placeholder="nome completo" name="nome">
                 
               </div>
+
+         
           </div>
 
 

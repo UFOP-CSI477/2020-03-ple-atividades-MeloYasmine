@@ -2,6 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Models\Equipamento;
+
+use App\Http\Controllers\MusicaController;
+use App\Http\Controllers\UserController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,6 +17,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get('/welcome', function () {
     return view('welcome');
+})->name('welcome');
+
+
+Route::get('/m', function () {
+    return view('m');
 });
+
+
+Route::resource('/musicas', MusicaController::class);
+
+Route::resource('/users', UserController::class);
