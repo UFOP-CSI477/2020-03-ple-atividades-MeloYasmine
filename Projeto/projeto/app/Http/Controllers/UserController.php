@@ -40,13 +40,18 @@ class UserController extends Controller
     {
     
         if(!empty($request->all())){
-            
+
             //Diferenciar usuario padrão de um administrador
             $tipo_user = $request->tipo;
 
+            User::create($request->all());
+
+            
+
             if($tipo_user == "U"){
-                  
+                
                 session()->flash('mensagem', 'Usuário cadastrado com sucesso!');
+                //return redirect()->route('foto');
                 return redirect()->route('welcome');
             }else{
                 
@@ -76,7 +81,7 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
-        //
+        return view('users.show',['user' =>$user]);
     }
 
     /**
@@ -87,7 +92,7 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        //
+        return view('users.edit', ['user' => $user]);
     }
 
     /**
@@ -99,8 +104,43 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
+        //Update normal
+        
         $data = $request->all();
-        /*auth()->user()->update($data);*/
+
+        //caso usuario tenha foto
+        $data['foto'] = $user->foto;
+        
+        //se informou imagem
+        if($request->hasFile('foto') && $request->file('foto')->isValid()){
+           
+            //if($user->foto){
+              //  $name = $user->foto;
+            //}else{
+            //dando nome ao arquivo
+            $name = Str::kebab($request->apelido);
+            $extension = $request->foto->extension();
+            $nameFile = "{$name}.{$extension}";
+            //dd($nameFile);
+
+            $upload = $request->foto->storeAs('users', $nameFile);
+            
+            if(!$upload)
+                return redirect()
+                            ->back()
+                            ->with('error', 'Falha ao realizar upload');    
+
+       // }
+
+        }
+
+        
+        
+        $user->fill($request->all());
+        $user->save();
+
+        session()->flash('mensagem', 'Usuário atualizado com sucesso!');
+        return redirect()->route('welcome');
     }
 
     /**
@@ -111,6 +151,14 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
-        //
+        $user->delete();
+        session()->flash('mensagem', 'Usuário excluído :(');
+        return redirect()->route('welcome');
+    }
+
+
+    public function foto()
+    {
+        dd('usuario escolhe uma foto');
     }
 }

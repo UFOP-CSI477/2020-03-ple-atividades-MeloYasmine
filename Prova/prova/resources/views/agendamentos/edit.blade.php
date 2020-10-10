@@ -30,7 +30,7 @@
 
   </head>
   <body>
-    <form  action="{{route('agendamentos.store')}}" method="post" style="border-style:dashed; margin:100px; border-radius: 10px;">
+    <form  action="{{route('agendamentos.update')}}" method="post" style="border-style:dashed; margin:100px; border-radius: 10px;">
         @csrf
     
     <div class="container" style="place-items:center; margin-top:30pt; margin-bottom:30pt">
