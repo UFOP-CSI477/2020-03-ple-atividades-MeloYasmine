@@ -12,7 +12,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Jekyll v4.1.1">
-    <title>Cadastro de usuários</title>
+    <title>Cadastro de músicas</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/album/">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" 
@@ -30,110 +30,62 @@
 
   </head>
   <body >
-    <form  action="{{route('users.store')}}" method="post" files="true" enctype="multipart/form-data" style="border-style:dashed; margin:10px; border-radius: 10px; margin-bottom:150pt;">
+    <form  action="{{route('musicas.store')}}" method="post" files="true"  style="border-style:dashed; margin:10px; border-radius: 10px; margin-bottom:150pt;">
         @csrf
   
 
     <div class="container" style="place-items:center; margin-top:30pt; margin-bottom:30pt">
-      <h1 class="card-title" style="text-align:center; margin-bottom:20pt;">Cadastro de usuarios</h1>
+      <h1 class="card-title" style="text-align:center; margin-bottom:20pt;">Cadastro de músicas</h1>
 
         <div class="row">
-
-          <div class="col-md-6">
-            <div class="form-group">
-                <label for="nome">Nome: </label>
-                <input required="required" type="text" class="form-control" id="nome" placeholder="Nome completo" name="nome" required="required">
-              </div>
-          </div>
           
           <div class="col-md-6">
             <div class="form-group">
-                <label for="apelido">Apelido: </label>
-                <input required="required" type="text" class="form-control" id="apelido" placeholder="Como voce gostaria de ser chamado no site" name="apelido" required="required">        
+              <label for="nome">Nome da musica: </label>
+              <input type="text" class="form-control" id="nome" placeholder="Musica" name="nome" required="required">
+            </div>
           </div>
-        </div>
 
-        </div>
-
-        <div class="row">
-
-            <div class="col-md-6">
-                <div class="form-group">
-                    <label for="sexo">Sexo: </label>
-                    <select required="required" class="form-control" id="sexo" placeholder="sexo completo" name="sexo">
-                        <option value="F">Feminino</option>
-                        <option value="M">Masculino</option>
-                        <option value="N">Não informar</option>
-                    </select>                    
-                  </div>
-              </div>
-              
-              <div class="col-md-6">
-                <div class="form-group">
-                    <label for="email">E-mail </label>
-                    <input required="required" type="email" class="form-control" id="email" placeholder="Seu e-mail" name="email" required="required">        
-              </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="artista">Artista: </label>
+              <input type="text" class="form-control" id="artista" placeholder="Artisa" name="artista" required="required">
             </div>
-
-
-        </div>
-
-
-        <div class="row">
-
-            <div class="col-md-6">
-                <div class="form-group">
-                    <label for="data_nasc">Data de Nascimento: </label>
-                    <input required="required" type="date" class="form-control" id="data_nasc"  name="data_nasc">        
-              </div>
-            </div>
-  
-            <div class="col-md-6">
-                <div class="form-group">
-                    <label for="password">Senha: </label>
-                    <input required="required" type="password" class="form-control" id="password" placeholder="Senha" name="password" required="required">        
-              </div>
-            </div>
-
-
-
-        </div>
-
-
-
-
-
-
+          </div>
         
+        </div>
+
+
         <div class="row">
 
-            <div class="col-md-6">
-                <div class="form-group">
-                    <label for="genero_fav">Gênero musical favorito: </label>
-                    <select required="required" class="form-control" id="genero_fav"  name="genero_fav">
-                        <option value="POP">POP</option>
-                        <option value="ROCK">ROCK</option>
-                        <option value="LO-FI">LO-FI</option>
-                    </select>        
-              </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="album">Album: </label>
+              <input type="text" class="form-control" id="album" placeholder="Album" name="album" required="required">
             </div>
-  
-            <div class="col-md-6">
-                <div class="form-group">
-                  
-                    <label for="foto">Foto de perfil: </label>
-                    <input required="required" type="file" class="form-control" id="foto" placeholder="Senha" name="foto">        
-              </div>
-            </div>
+          </div>
 
-            
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="genero">Genero: </label>
+              <input type="text" class="form-control" id="genero" placeholder="Genero musical" name="genero" required="required">
+            </div>
+          </div>
+
         </div>
-   
 
+        <div class="row">
 
-    </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="ano">Ano lançamento: </label>
+              <input type="text" maxlength="4" class="form-control" id="ano" placeholder="2010" name="ano" required="required">
+            </div>
+          </div>
 
+  
 
+        </div>
 
         <button type="submit" class="btn btn-success  mx-sm-3 mb-2">Cadastrar</button>
         <button type="reset" class="btn btn-warning   mx-sm-3 mb-2">Limpar</button>

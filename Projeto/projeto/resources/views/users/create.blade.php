@@ -28,7 +28,7 @@
           <div class="col-md-6">
             <div class="form-group">
                 <label for="apelido">Apelido: </label>
-                <input required="required" type="text" class="form-control" id="apelido" placeholder="Como voce gostaria de ser chamado no site" name="apelido" required="required">        
+                <input  required="required" type="text" class="form-control" id="apelido" placeholder="Como voce gostaria de ser chamado no site" name="apelido" required="required">        
           </div>
         </div>
 

@@ -9,5 +9,5 @@ class Musica extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['nome', 'artista', 'album', 'genero', 'data', 'caminho'];
+    protected $fillable = ['nome', 'artista', 'album', 'genero', 'ano', 'caminho'];
 }

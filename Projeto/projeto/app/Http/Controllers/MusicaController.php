@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Musica;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 class MusicaController extends Controller
 {
     /**
@@ -14,7 +15,8 @@ class MusicaController extends Controller
      */
     public function index()
     {
-        return view('musicas.index');
+        $musicas = Musica::orderBy('nome')->get();
+        return view('musicas.index',['musicas' => $musicas]);
     }
 
     /**
@@ -24,7 +26,7 @@ class MusicaController extends Controller
      */
     public function create()
     {
-        //
+        return view('musicas.create');
     }
 
     /**
@@ -35,7 +37,19 @@ class MusicaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Musica::create($request->all());
+
+        $nomeCaminho = Str::kebab($request->nome.$request->artista.'.mp3');
+
+        DB::table('musicas')
+            ->updateOrInsert(
+                ['nome' => $request->nome],
+                ['caminho' => $nomeCaminho]
+            
+        );
+
+        session()->flash('mensagem', 'Musica cadastrada com sucesso!');
+        return redirect()->route('musicas.index');
     }
 
     /**
@@ -80,6 +94,8 @@ class MusicaController extends Controller
      */
     public function destroy(Musica $musica)
     {
-        //
+        $musica->delete();
+        session()->flash('mensagem', 'Musica excluída :(');
+        return redirect()->route('musicas.index');
     }
 }

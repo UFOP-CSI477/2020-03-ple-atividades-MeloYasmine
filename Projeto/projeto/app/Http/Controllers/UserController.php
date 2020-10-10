@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Contracts\Encryption\DecryptException;
 use Illuminate\Support\Facades\Crypt;
-
+use Illuminate\Support\Facades\DB;
 class UserController extends Controller
 {
     /**
@@ -118,7 +118,7 @@ class UserController extends Controller
               //  $name = $user->foto;
             //}else{
             //dando nome ao arquivo
-            $name = Str::kebab($request->apelido);
+            $name = ($request->apelido);
             $extension = $request->foto->extension();
             $nameFile = "{$name}.{$extension}";
             //dd($nameFile);
@@ -138,6 +138,18 @@ class UserController extends Controller
         
         $user->fill($request->all());
         $user->save();
+
+
+        DB::table('users')
+            ->updateOrInsert(
+                ['apelido' => $request->apelido],
+                ['foto' => $nameFile]
+            
+        );
+        //DB::table('users')
+       //       ->where('id', $request->id)
+       //       ->update(['foto' => $nameFile]);
+
 
         session()->flash('mensagem', 'Usuário atualizado com sucesso!');
         return redirect()->route('welcome');

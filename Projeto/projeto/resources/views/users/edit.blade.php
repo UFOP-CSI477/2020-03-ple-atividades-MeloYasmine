@@ -119,13 +119,15 @@
   
           
             <div class="col-md-6">
-                <div class="form-group">
+               
+                  <div class="form-group">
                   @if(Auth::user()->foto != null)
                   
-                    <img src="{{asset('yas.png')}}"  style="max-width: 50px;">   
+                    <img src="{{asset('storage/users/'.Auth::user()->foto)}}"  style="max-width: 150px;"> 
+              
                   @endif
-                    <label for="foto">Foto de perfil: </label>
-                    <input type="file" class="form-control" id="foto" name="foto">        
+                    
+                    <input type="file" class="form-control" id="foto" name="foto"  accept="image/png">        
               </div>
             </div>
             

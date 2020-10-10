@@ -12,7 +12,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Jekyll v4.1.1">
-    <title>Musica</title>
+    <title>Musicas</title>
     <script src="{{asset('java.js')}}"></script>
     <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/blog/">
     <script src="java.js"></script>
@@ -26,55 +26,82 @@
 
 
 <body>
-<div class="album py-1 bg-light">
+<div class="album py-1">
     <div class="container">
 
-    <h1 class="mx-auto" style="text-align:center; margin-bottom:20pt; margin-top:20pt;">Musicas</h1>
+    <h1 class="mx-auto" style="text-align:center; margin-bottom:20pt; margin-top:20pt;">Músicas</h1>
 
 
-  <table class="table table-bordered table-sm">
+  <table class="table table-bordered table-sm" style="margin-bottom: 80pt;">
   <thead class="bg-info">
-  <tr align="center" class="bg-danger">
+  <tr align="center" class="bg-primary">
   <th>Play</th>
   <th>Nome</th>
   <th>Artista</th>
   <th>Album</th>
   <th>Gênero</th>
   <th>Ano</th>
+  <td>OPÇÕES</td>
 
   </tr>
 </thead>
 
 <tbody>
 
-<!--Tratar quando for exibir por id-->
+
+
+@foreach($musicas as $musica)
 
 
 
       <tr align="center"> 
          <td>
-            <audio id='playAudio1'>
-                <source src="{{asset('./music/Chill_Gaming_-_David_Fesliyan.mp3')}}" type="audio/mpeg">
+            <audio id={{'audio'.$musica->id}}>
+                <source src="{{asset('./music/'.$musica->caminho)}}" type="audio/mpeg">
                   
                   Seu navegador não suporta esse formato de áudio.
               </audio>
-              <div class="col-1">
+              
 
-                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-play-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg"  onclick="darPlay(1)">
+                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-play-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg"  onclick="Play({{$musica->id}})">
                   <path d="M11.596 8.697l-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"/>
                 </svg>
 
-                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-pause-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg"  onclick="darPause(1)">
+                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-pause-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg"  onclick="Pause({{$musica->id}})">
                   <path d="M5.5 3.5A1.5 1.5 0 0 1 7 5v6a1.5 1.5 0 0 1-3 0V5a1.5 1.5 0 0 1 1.5-1.5zm5 0A1.5 1.5 0 0 1 12 5v6a1.5 1.5 0 0 1-3 0V5a1.5 1.5 0 0 1 1.5-1.5z"/>
                 </svg>
 
-              </div>
+                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-stop-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg" onclick="Stop({{$musica->id}})">
+                  <path d="M5 3.5h6A1.5 1.5 0 0 1 12.5 5v6a1.5 1.5 0 0 1-1.5 1.5H5A1.5 1.5 0 0 1 3.5 11V5A1.5 1.5 0 0 1 5 3.5z"/>
+                </svg>
+
+              
          </td>
        
          
+        <td>{{$musica->nome}}</td>
+        <td>{{$musica->artista}}</td>
+        <td>{{$musica->album}}</td>
+        <td>{{$musica->genero}}</td>
+        <td>{{$musica->ano}}</td>
+        <td>
 
+          <form name="frmDelete"
+          action="{{route('musicas.destroy', $musica->id)}}"
+          method="post"
+          onsubmit="return confirm('Confirma a exclusão do musica?')">
+          @csrf
+          @method('DELETE')
+          <a type="button" class="btn btn-sm btn-success mx-sm-1 mb-1" href="{{route('musicas.edit', $musica->id)}}">Atualizar</a>
+          <input type="submit" class="btn btn-sm btn-danger mx-sm-1 mb-1" value="Excluir">
+          <a type="button" class="btn btn-sm btn-info mx-sm-1 mb-1" href="{{route('musicas.index')}}">Voltar</a>
+          
+          </form>
+
+        </td>
       </tr>    
-  
+
+@endforeach
 
 
 </tbody>

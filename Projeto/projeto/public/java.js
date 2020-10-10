@@ -1,18 +1,22 @@
-function darPlay(numeroAudio) {
-
-    if(numeroAudio==1){
-      playAudio = document.getElementById("playAudio1");
-      playAudio.play();
+function Play(numeroAudio) {
     
-  }
-
-
+      playAudio = document.getElementById('audio'+ numeroAudio);
+      playAudio.play();
+     
 }
 
-function darPause(numeroAudio){
-  if(numeroAudio == 1){
-    pauseAudio = document.getElementById('playAudio1');
+function Pause(numeroAudio){
+  
+    pauseAudio = document.getElementById('audio'+ numeroAudio);
     pauseAudio.pause();
-  }
+    
+}
+
+function Stop(numeroAudio){
+  
+  stopAudio = document.getElementById('audio'+numeroAudio);
+  stopAudio.pause();
+  stopAudio.currentTime = 0;
   
 }
+

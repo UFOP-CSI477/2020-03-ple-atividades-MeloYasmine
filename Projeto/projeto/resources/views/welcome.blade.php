@@ -49,7 +49,7 @@
               <circle cx="3.5" cy="8" r=".5"/>
               <circle cx="3.5" cy="10.5" r=".5"/>
             </svg>
-              Area Geral
+              Sobre
             </a>
          
 
@@ -196,6 +196,10 @@
 </div>
 
 
-
 </body>
+
+<footer class="blog-footer">
+  <a href="{{route('musicas.create')}}">Area Admin</a>
+</p>
+</footer>
 </html>
