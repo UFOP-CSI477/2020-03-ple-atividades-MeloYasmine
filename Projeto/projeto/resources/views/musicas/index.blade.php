@@ -29,7 +29,30 @@
 <div class="album py-1">
     <div class="container">
 
-    <h1 class="mx-auto" style="text-align:center; margin-bottom:20pt; margin-top:20pt;">Músicas</h1>
+    <h1 class="mx-auto" style="text-align:center; margin-bottom:20pt;">Músicas</h1>
+
+<!--Busca-->    
+<form  action="#" method="post" files="true"  style="border-style:dashed; margin-bottom: 10pt;border-radius: 10px;">
+      @csrf
+  <div class="container" style="place-items:center; ">
+    
+
+      <div class="row">
+        
+        <div class="col-md-6">
+          <div class="form-group">
+            
+            <select required="required" class="form-control" id="busca" name="busca">
+                <option  required="required" value="genero">Buscar</option>
+                <option  required="required" value="genero">Gênero Musical</option>
+                <option  required="required" value="genero">Artista</option>
+              
+            </select>
+          </div>
+        </div>
+      </div>
+  </div>
+</form>
 
 
   <table class="table table-bordered table-sm" style="margin-bottom: 80pt;">
@@ -82,7 +105,7 @@
         <td>{{$musica->nome}}</td>
         <td>{{$musica->artista}}</td>
         <td>{{$musica->album}}</td>
-        <td>{{$musica->genero}}</td>
+        <td>{{$musica->genero->nome}}</td>
         <td>{{$musica->ano}}</td>
         <td>
 

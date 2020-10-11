@@ -73,8 +73,10 @@
       @endif
   @else
       <li class="nav-item dropdown">
+        
           <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-              {{ Auth::user()->name }}
+        
+            {{ Auth::user()->name }}
           </a>
 
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
@@ -178,7 +180,7 @@
         <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
           <div class="col p-4 d-flex flex-column position-static">
             
-            <h3 class="mb-0 d-inline-block mb-2 text-dark">ÁREA GERAL</h3>
+            <h3 class="mb-0 d-inline-block mb-2 text-dark">PLAYLISTS</h3>
   
           <a href="#" class="stretched-link">Acesso</a>
           </div>
@@ -197,9 +199,12 @@
 
 
 </body>
-
-<footer class="blog-footer">
-  <a href="{{route('musicas.create')}}">Area Admin</a>
-</p>
-</footer>
+@if(Auth::user())
+  @if(Auth::user()->tipo == 'A')
+    <footer class="blog-footer">
+      <a href="{{route('musicas.create')}}">Area Admin</a>
+    </p>
+    </footer>
+  @endif
+@endif
 </html>

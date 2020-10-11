@@ -8,6 +8,8 @@ use Illuminate\Support\Str;
 use Illuminate\Contracts\Encryption\DecryptException;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Database\QueryException;
+use Exception;
 class UserController extends Controller
 {
     /**
@@ -38,38 +40,33 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-    
-        if(!empty($request->all())){
+        
+            if(!empty($request->all())){
 
-            //Diferenciar usuario padrão de um administrador
-            $tipo_user = $request->tipo;
+                //Diferenciar usuario padrão de um administrador
+                $tipo_user = $request->tipo;
 
-            User::create($request->all());
+                User::create($request->all());
 
-            
-
-            if($tipo_user == "U"){
                 
-                session()->flash('mensagem', 'Usuário cadastrado com sucesso!');
-                //return redirect()->route('foto');
-                return redirect()->route('welcome');
-            }else{
-                
-                session()->flash('mensagem', 'Administrador cadastrado com sucesso!');
-                return redirect()->route('welcome');
-            }
-           
-          
-           
-            }
 
-           
-            
-      
-        else{
-            session()->flash('mensagem', 'Preencha todos os dados!');
-            return redirect()->route('users.create');
-        }
+                if($tipo_user == "U"){
+                    
+                    session()->flash('mensagem', 'Usuário cadastrado com sucesso!');
+                    //return redirect()->route('foto');
+                    return redirect()->route('welcome');
+                }else{
+                    
+                    session()->flash('mensagem', 'Administrador cadastrado com sucesso!');
+                    return redirect()->route('welcome');
+                }
+            }    
+
+            else{
+                session()->flash('mensagem', 'Preencha todos os dados!');
+                return redirect()->route('users.create');
+            }
+        
     
     }
 
@@ -169,8 +166,5 @@ class UserController extends Controller
     }
 
 
-    public function foto()
-    {
-        dd('usuario escolhe uma foto');
-    }
+ 
 }

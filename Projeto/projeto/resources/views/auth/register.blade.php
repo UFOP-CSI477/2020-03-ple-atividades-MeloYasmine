@@ -25,10 +25,15 @@
         <div class="col-md-6">
             <div class="form-group">
                 <label for="apelido">Apelido: </label>
-                <input  required="required" type="text" class="form-control" id="apelido" placeholder="Como voce gostaria de ser chamado no site" name="apelido" required="required">        
-          </div>
+                <input id="apelido" type="text" class="form-control @error('apelido') is-invalid @enderror" name="apelido" value="{{ old('apelido') }}" required autocomplete="apelido">
+                @error('apelido')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
         </div>
-        </div>
+</div>
 
         <div class="row">
         <div class="col-md-6">

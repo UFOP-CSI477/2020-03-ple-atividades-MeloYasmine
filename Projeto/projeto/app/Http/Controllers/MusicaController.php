@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Genero;
 use App\Models\Musica;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -15,6 +16,7 @@ class MusicaController extends Controller
      */
     public function index()
     {
+
         $musicas = Musica::orderBy('nome')->get();
         return view('musicas.index',['musicas' => $musicas]);
     }
@@ -26,7 +28,8 @@ class MusicaController extends Controller
      */
     public function create()
     {
-        return view('musicas.create');
+        $generos = Genero::orderBy('nome')->get();
+        return view('musicas.create',['generos' => $generos]);
     }
 
     /**

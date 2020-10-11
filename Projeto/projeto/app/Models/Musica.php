@@ -9,5 +9,10 @@ class Musica extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['nome', 'artista', 'album', 'genero', 'ano', 'caminho'];
+    protected $fillable = ['nome', 'artista', 'album', 'genero_id', 'ano', 'caminho'];
+
+    public function genero(){    
+            
+        return $this->hasOne('App\Models\Genero', 'id', 'genero_id');
+    }
 }

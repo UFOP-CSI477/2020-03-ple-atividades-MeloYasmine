@@ -68,7 +68,11 @@
           <div class="col-md-6">
             <div class="form-group">
               <label for="genero">Genero: </label>
-              <input type="text" class="form-control" id="genero" placeholder="Genero musical" name="genero" required="required">
+              <select required="required" class="form-control" id="genero_id" name="genero_id">
+                @foreach ($generos as $genero)
+                  <option  required="required" value="{{$genero->id}}">{{$genero->nome}}</option>
+                @endforeach
+              </select>
             </div>
           </div>
 

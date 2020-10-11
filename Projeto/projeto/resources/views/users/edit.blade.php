@@ -127,7 +127,7 @@
               
                   @endif
                     
-                    <input type="file" class="form-control" id="foto" name="foto"  accept="image/png">        
+                    <input type="file" class="form-control" id="foto" name="foto"  >        
               </div>
             </div>
             
