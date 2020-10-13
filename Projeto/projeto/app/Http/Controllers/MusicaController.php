@@ -6,6 +6,7 @@ use App\Models\Genero;
 use App\Models\Musica;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 class MusicaController extends Controller
 {
@@ -132,8 +133,22 @@ class MusicaController extends Controller
      */
     public function destroy(Musica $musica)
     {
-        $musica->delete();
-        session()->flash('mensagem', 'Musica excluída :(');
-        return redirect()->route('musicas.index');
+       
+    if ($musica->delete()) {
+        //Deleta o arquivo da musica)
+        Storage::delete("music/{$musica->caminho}"); // true ou false
+ 
+      
+        return redirect()
+                    ->route('musicas.index')
+                    ->with('mensagem', 'Sucesso ao deletar!');
+    }
+
+        return redirect()
+                ->back()
+                ->with('mensagem', 'Falha ao deletar!');
+
+
+
     }
 }

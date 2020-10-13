@@ -88,7 +88,11 @@
   <th>Album</th>
   <th>Gênero</th>
   <th>Ano</th>
-  <td>OPÇÕES</td>
+
+    @if(Auth::user()->tipo == 'A')
+      <td>OPÇÕES</td>
+    @endif
+  
 
   </tr>
 </thead>
@@ -131,21 +135,25 @@
         <td>{{$musica->album}}</td>
         <td>{{$musica->genero->nome}}</td>
         <td>{{$musica->ano}}</td>
-        <td>
 
-          <form name="frmDelete"
-          action="{{route('musicas.destroy', $musica->id)}}"
-          method="post"
-          onsubmit="return confirm('Confirma a exclusão do musica?')">
-          @csrf
-          @method('DELETE')
-          <a type="button" class="btn btn-sm btn-success mx-sm-1 mb-1" href="{{route('musicas.edit', $musica->id)}}">Atualizar</a>
-          <input type="submit" class="btn btn-sm btn-danger mx-sm-1 mb-1" value="Excluir">
-          <a type="button" class="btn btn-sm btn-info mx-sm-1 mb-1" href="{{route('musicas.index')}}">Voltar</a>
-          
-          </form>
+        @if(Auth::user()->tipo == 'A')
+          <td>
 
-        </td>
+            <form name="frmDelete"
+            action="{{route('musicas.destroy', $musica->id)}}"
+            method="post"
+            onsubmit="return confirm('Confirma a exclusão do musica?')">
+            @csrf
+            @method('DELETE')
+            <a type="button" class="btn btn-sm btn-success mx-sm-1 mb-1" href="{{route('musicas.edit', $musica->id)}}">Atualizar</a>
+            <input type="submit" class="btn btn-sm btn-danger mx-sm-1 mb-1" value="Excluir">
+            <a type="button" class="btn btn-sm btn-info mx-sm-1 mb-1" href="{{route('musicas.index')}}">Voltar</a>
+            
+            </form>
+
+          </td>
+        @endif
+
       </tr>    
 
 @endforeach

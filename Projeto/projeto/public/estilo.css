@@ -4,4 +4,19 @@
 
  body{
     background: linear-gradient(#e66465, #9198e5);
+    font-family: 'Prompt', sans-serif;
+ }
+
+  .perfil{
+    border-radius: 10px; 
+    border-style: groove; 
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 15pt;
+  }
+
+  .legenda{
+    font-weight: bold;
+    font-size: 13px;
   }

@@ -4,12 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Str;
-use Illuminate\Contracts\Encryption\DecryptException;
-use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Database\QueryException;
-use Exception;
+use Illuminate\Support\Facades\Storage;
+
 class UserController extends Controller
 {
     /**
@@ -111,14 +108,12 @@ class UserController extends Controller
         //se informou imagem
         if($request->hasFile('foto') && $request->file('foto')->isValid()){
            
-            //if($user->foto){
-              //  $name = $user->foto;
-            //}else{
+           
             //dando nome ao arquivo
             $name = ($request->apelido);
             $extension = $request->foto->extension();
             $nameFile = "{$name}.{$extension}";
-            //dd($nameFile);
+      
 
             $upload = $request->foto->storeAs('users', $nameFile);
             
@@ -127,7 +122,7 @@ class UserController extends Controller
                             ->back()
                             ->with('error', 'Falha ao realizar upload');    
 
-       // }
+ 
 
         }
 
@@ -143,13 +138,10 @@ class UserController extends Controller
                 ['foto' => $nameFile]
             
         );
-        //DB::table('users')
-       //       ->where('id', $request->id)
-       //       ->update(['foto' => $nameFile]);
 
 
         session()->flash('mensagem', 'Usuário atualizado com sucesso!');
-        return redirect()->route('users.show');
+        return redirect()->route('users.show', $user);
     }
 
     /**
@@ -160,11 +152,25 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
-        $user->delete();
-        session()->flash('mensagem', 'Usuário excluído :(');
-        return redirect()->route('welcome');
+        if ($user->delete()) {
+            //Deleta o arquivo da foto de perfil
+            Storage::delete("users/{$user->foto}"); // true ou false
+     
+          
+            return redirect()
+                        ->route('welcome')
+                        ->with('mensagem', 'Perfil excluído :(');
+        }
+    
+            return redirect()
+                    ->back()
+                    ->with('mensagem', 'Falha ao deletar!');
+    
+    
+    
+        }
     }
 
 
  
-}
+
