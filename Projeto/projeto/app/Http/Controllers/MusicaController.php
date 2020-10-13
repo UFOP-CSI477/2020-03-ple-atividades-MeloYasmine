@@ -18,7 +18,11 @@ class MusicaController extends Controller
     {
 
         $musicas = Musica::orderBy('nome')->get();
-        return view('musicas.index',['musicas' => $musicas]);
+        $generos = Genero::orderBy('nome')->get();
+        
+        $artistas = DB::table('musicas')->distinct()->pluck('artista');        
+
+        return view('musicas.index',['musicas' => $musicas, 'generos' => $generos, 'artistas' =>$artistas]);
     }
 
     /**
@@ -39,15 +43,46 @@ class MusicaController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        Musica::create($request->all());
+    {       
+        //$idAtual = Musica::create($request->all());
+        
+        $idAtual = DB::table('musicas')->insertGetId(
+            ['nome' => $request->nome,
+            'artista' => $request->artista,
+            'album' => $request->album,
+            'genero_id' => $request->genero_id,
+            'ano' => $request->ano]
+        );
 
-        $nomeCaminho = Str::kebab($request->nome.$request->artista.'.mp3');
+       
+        //se informou arquivo
+        if($request->hasFile('caminho') && $request->file('caminho')->isValid()){
+           
+            //if($user->foto){
+              //  $name = $user->foto;
+            //}else{
+            //dando nome ao arquivo
+            $name = Str::kebab($request->nome);
+            $name2 = Str::kebab($request->artista);            
+            $extension = $request->caminho->extension();
+            $nameFile = "{$name}-{$name2}.{$extension}";
+            //dd($nameFile);
+
+            $upload = $request->caminho->storeAs('music', $nameFile);
+            
+            if(!$upload)
+                return redirect()
+                            ->back()
+                            ->with('error', 'Falha ao realizar upload');    
+
+       // }
+
+        }
 
         DB::table('musicas')
             ->updateOrInsert(
-                ['nome' => $request->nome],
-                ['caminho' => $nomeCaminho]
+                ['id' => $idAtual],
+                ['caminho' => $nameFile]
             
         );
 

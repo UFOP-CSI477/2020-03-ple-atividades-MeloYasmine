@@ -22,10 +22,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 
-
+  </head>
 
 
 <body>
+
+  <form action="post" name="formulario">
 <div class="album py-1">
     <div class="container">
 
@@ -38,18 +40,40 @@
     
 
       <div class="row">
+
         
-        <div class="col-md-6">
+        <div class="col-md-4">
           <div class="form-group">
             
-            <select required="required" class="form-control" id="busca" name="busca">
-                <option  required="required" value="genero">Buscar</option>
-                <option  required="required" value="genero">Gênero Musical</option>
-                <option  required="required" value="genero">Artista</option>
+            <select required="required" class="form-control" id="busca" name="busca" onChange="carregarOpcoes()">
+                <option value="selecione">SELECIONE</option>
+                <option  value="genero">Gênero</option>
+                <option  value="artista">Artista</option>
               
+            </select>         
+          </div>
+        </div>
+
+        <div id="generos" class="col-md-4" style="display: none">
+          <div class="form-group">
+            
+            <select required="required" class="form-control" id="generos" name="generos">
+              <option value="">SELECIONE</option>  
+              @foreach ($generos as $genero)
+                <option value={{$genero->id}}>{{$genero->nome}}</option>
+                  
+              @endforeach           
             </select>
           </div>
         </div>
+
+
+        <div id="botao" class="col-md-4" style="display: none">
+          <div class="form-group">
+        <a type="button"  class="btn btn-sm btn-success mx-sm-1 mb-1" href="{{route('musicas.index')}}">Buscar</a>
+          </div>
+        </div>
+
       </div>
   </div>
 </form>
@@ -80,7 +104,7 @@
       <tr align="center"> 
          <td>
             <audio id={{'audio'.$musica->id}}>
-                <source src="{{asset('./music/'.$musica->caminho)}}" type="audio/mpeg">
+                <source src="{{asset('storage/music/'.$musica->caminho)}}" type="audio/mpeg">
                   
                   Seu navegador não suporta esse formato de áudio.
               </audio>
@@ -134,5 +158,6 @@
 </div>
 
 </body>
+</form>
 </html>
 @endsection

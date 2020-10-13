@@ -20,7 +20,7 @@
     
     
 
-    <div class="container" style="margin-bottom: 100px; margin-top:100px; background: linear-gradient(#EAEAAE, #9198e5); border-radius: 10px; border-style:groove" >
+    <div class="container" style="margin-bottom: 100px; margin-top:100px; background: linear-gradient(#EAEAAE, #9198e5); border-radius: 10px; border-style:groove;" >
         <h1 class="mx-auto" style="text-align:center; margin-bottom:20pt;">{{$user->apelido}}</h1>
         
 

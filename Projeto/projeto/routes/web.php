@@ -7,6 +7,7 @@ use App\Models\Equipamento;
 
 use App\Http\Controllers\MusicaController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\PlaylistController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -31,6 +32,8 @@ Route::get('/foto',
  [UserController::class, 'foto'])->name('foto');
 
 Route::resource('/musicas', MusicaController::class)->middleware('auth');
+
+Route::resource('/playlists', PlaylistController::class)->middleware('auth');
 
 Route::resource('/users', UserController::class);
 Auth::routes();

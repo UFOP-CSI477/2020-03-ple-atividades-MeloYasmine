@@ -53,29 +53,26 @@
             </a>
          
 
-            <a href="#" class="navbar-brand d-flex align-items-center">
-              <svg width="40" height="40" viewBox="0 0 20 20" class="bi bi-clipboard-data" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"/>
-                <path fill-rule="evenodd" d="M9.5 1h-3a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"/>
-                <path d="M4 11a1 1 0 1 1 2 0v1a1 1 0 1 1-2 0v-1zm6-4a1 1 0 1 1 2 0v5a1 1 0 1 1-2 0V7zM7 9a1 1 0 0 1 2 0v3a1 1 0 1 1-2 0V9z"/>
-              </svg>
-                Area Administrativa
-              </a>
       <!-- Authentication Links -->
       @guest
-      <li class="nav-item">
+      <a class="nav-item">
+        
           <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-      </li>
+      </a>
       @if (Route::has('register'))
           <li class="nav-item">
               <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
           </li>
       @endif
   @else
-      <li class="nav-item dropdown">
-        
+      <a class="nav-item dropdown">
+     
           <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-        
+            @if(Auth::user()->foto != null)
+                  
+            <img src="{{asset('storage/users/'.Auth::user()->foto)}}"  style="max-width: 50px; border-radius: 10px; border-style:groove;"> 
+      
+          @endif
             {{ Auth::user()->name }}
           </a>
 
@@ -90,7 +87,7 @@
                   @csrf
               </form>
           </div>
-      </li>
+      </a>
   @endguest
     
 
@@ -130,10 +127,11 @@
             
             <h3 class="mb-0 d-inline-block mb-2 text-dark">MUSICAS</h3>
      
-          <a href="{{route('musicas.index')}}" class="stretched-link">Acesso</a>
+          <a href="{{route('musicas.index')}}" class="stretched-link">
           </div>
           <div class="col-auto d-none d-lg-block">
             <img src="{{asset('2.png')}}" class="bd-placeholder-img" width="255" height="250" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail" rect width="100%" height="100%" fill="#55595c">
+            </a>
           </div>
         </div>
       </div>
@@ -144,11 +142,13 @@
             
             <h3 class="mb-0 d-inline-block mb-2 text-dark">ÁREA GERAL</h3>
     
-          <a href="{{route('users.create')}}" class="stretched-link">Acesso</a>
+          <a href="{{route('users.create')}}" class="stretched-link">
           </div>
           <div class="col-auto d-none d-lg-block">
-            <img src="{{asset('5.png')}}" class="bd-placeholder-img" width="255" height="250" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail" rect width="100%" height="100%" fill="#55595c">
+            <img href="{{route('users.create')}}" src="{{asset('5.png')}}" class="bd-placeholder-img" width="255" height="250" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail" rect width="100%" height="100%" fill="#55595c">
+          </a>
           </div>
+        
         </div>
       </div>
 
@@ -160,16 +160,17 @@
             <h3 class="mb-0 d-inline-block mb-2 text-dark">MEU PERFIL</h3>
   
             @if(Auth::user())
-               <a href="{{route('users.show', Auth::user()->id)}}" class="stretched-link">Ver Perfil</a>
+               <a href="{{route('users.show', Auth::user()->id)}}" class="stretched-link">
             
 
             @else
-               <a href="{{route('register')}}" class="stretched-link">Ver Perfil</a>
+               <a href="{{route('register')}}" class="stretched-link">
             @endif
 
           </div>
           <div class="col-auto d-none d-lg-block">
             <img src="{{asset('3.png')}}" class="bd-placeholder-img" width="255" height="250" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail" rect width="100%" height="100%" fill="#55595c">
+            </a>
           </div>
         </div>
       </div>
@@ -182,10 +183,11 @@
             
             <h3 class="mb-0 d-inline-block mb-2 text-dark">PLAYLISTS</h3>
   
-          <a href="#" class="stretched-link">Acesso</a>
+          <a href="{{route('playlists.create')}}" class="stretched-link">
           </div>
           <div class="col-auto d-none d-lg-block">
             <img src="{{asset('4.png')}}" class="bd-placeholder-img" width="255" height="250" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail" rect width="100%" height="100%" fill="#55595c">
+          </a>
           </div>
         </div>
       </div>

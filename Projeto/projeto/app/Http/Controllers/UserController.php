@@ -149,7 +149,7 @@ class UserController extends Controller
 
 
         session()->flash('mensagem', 'Usuário atualizado com sucesso!');
-        return redirect()->route('welcome');
+        return redirect()->route('users.show');
     }
 
     /**

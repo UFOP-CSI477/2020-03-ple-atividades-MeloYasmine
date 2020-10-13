@@ -30,10 +30,9 @@
 
   </head>
   <body >
-    <form  action="{{route('musicas.store')}}" method="post" files="true"  style="border-style:dashed; margin:10px; border-radius: 10px; margin-bottom:150pt;">
+    <form  action="{{route('musicas.store')}}" method="post"  files="true" enctype="multipart/form-data" style="border-style:dashed; margin:10px; border-radius: 10px; margin-bottom:150pt;">
         @csrf
-  
-
+       
     <div class="container" style="place-items:center; margin-top:30pt; margin-bottom:30pt">
       <h1 class="card-title" style="text-align:center; margin-bottom:20pt;">Cadastro de músicas</h1>
 
@@ -49,7 +48,7 @@
           <div class="col-md-6">
             <div class="form-group">
               <label for="artista">Artista: </label>
-              <input type="text" class="form-control" id="artista" placeholder="Artisa" name="artista" required="required">
+              <input type="text" class="form-control" id="artista" placeholder="Artista" name="artista" required="required">
             </div>
           </div>
         
@@ -67,7 +66,7 @@
 
           <div class="col-md-6">
             <div class="form-group">
-              <label for="genero">Genero: </label>
+              <label for="genero_id">Genero: </label>
               <select required="required" class="form-control" id="genero_id" name="genero_id">
                 @foreach ($generos as $genero)
                   <option  required="required" value="{{$genero->id}}">{{$genero->nome}}</option>
@@ -87,7 +86,13 @@
             </div>
           </div>
 
-  
+          <div class="col-md-6">
+               
+            <div class="form-group">
+              <label for="caminho">Arquivo da musica: </label>
+              <input type="file" class="form-control" id="caminho" name="caminho"  >        
+        </div>
+      </div>
 
         </div>
 

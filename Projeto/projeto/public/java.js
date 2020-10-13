@@ -20,3 +20,18 @@ function Stop(numeroAudio){
   
 }
 
+function carregarOpcoes(){
+
+  
+  let op = document.formulario.busca.value;
+  if(op != "SELECIONE"){
+   
+
+    document.getElementById("botao").style.display="block";
+      document.getElementById("generos").style.display="block";
+      
+  
+  
+
+}
+}
