@@ -36,6 +36,7 @@ Route::resource('/musicas', MusicaController::class)->middleware('auth');
 Route::resource('/playlists', PlaylistController::class)->middleware('auth');
 
 Route::resource('/users', UserController::class);
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

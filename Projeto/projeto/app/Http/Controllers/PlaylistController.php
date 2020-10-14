@@ -21,7 +21,8 @@ class PlaylistController extends Controller
      */
     public function index()
     {
-        //
+        $playlists = DB::table('playlists')->where('user_id', Auth::user()->id)->distinct()->pluck('nome');
+
     }
 
     /**

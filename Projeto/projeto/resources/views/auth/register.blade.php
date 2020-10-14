@@ -1,12 +1,20 @@
 @extends('welcome')
 
 @section('conteudo')
+<head>
+    <title>Cadastro de Usuários</title>
+    <link href="{{asset('estilo.css')}}" rel="stylesheet">
 
-<form method="POST" action="{{ route('register') }}" style="border-style:dashed; margin:10px; border-radius: 10px; margin-bottom:150pt;">
+</head>
+
+<body>
+    
+
+<form method="POST" action="{{ route('register') }}"  class="formulario">
 @csrf
 
-<div class="container" style="place-items:center; margin-top:30pt; margin-bottom:30pt">
-      <h1 class="card-title" style="text-align:center; margin-bottom:20pt;">Cadastro de usuarios</h1>
+<div class="divcadastros container">
+      <h1 class="card-title">Crie seu perfil!</h1>
 
         <div class="row">
 
@@ -58,10 +66,13 @@
         <div class="col-md-6">
             <div class="form-group">
                 <label for="genero_fav">Gênero musical favorito: </label>
-                <select required="required" class="form-control" id="genero_fav"  name="genero_fav">
-                    <option value="POP">POP</option>
-                    <option value="ROCK">ROCK</option>
-                    <option value="LO-FI">LO-FI</option>
+                <select required="required" class="form-control" id="genero_fav"  name="genero_fav">                   
+                    <option value="POP">POP</option>     
+                    <option value="POP ROCK">POP ROCK</option>   
+                    <option value="ROCK">ROCK</option>   
+                    <option value="INDIE">INDIE</option>   
+                    <option value="DREAM POP">DREAM POP</option>   
+                    <option value="SERTANEJO">SERTANEJO</option>              
                 </select>        
           </div>
 
@@ -144,4 +155,5 @@
         </div>
     </div>
 </div>
+</body>
 @endsection

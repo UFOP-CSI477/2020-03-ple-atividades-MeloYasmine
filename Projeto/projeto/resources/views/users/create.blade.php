@@ -5,16 +5,16 @@
   <head>
   
     <title>Cadastro de usuários</title>
-
+    <link href="{{asset('estilo.css')}}" rel="stylesheet">
 
   </head>
   <body >
-    <form  action="{{route('users.store')}}" method="post" files="true" enctype="multipart/form-data" style="border-style:dashed; margin:10px; border-radius: 10px; margin-bottom:150pt;">
+    <form  action="{{route('users.store')}}" method="post" files="true" enctype="multipart/form-data"  class="formulario" >
         @csrf
   
 
-    <div class="container" style="place-items:center; margin-top:30pt; margin-bottom:30pt">
-      <h1 class="card-title" style="text-align:center; margin-bottom:20pt;">Cadastro de usuarios</h1>
+    <div class="divcadastros container">
+      <h1>Crie seu perfil!</h1>
 
         <div class="row">
 

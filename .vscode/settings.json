@@ -1,5 +1,6 @@
 {
     "cSpell.words": [
         "dbfile"
-    ]
+    ],
+    "blade.format.enable": true
 }

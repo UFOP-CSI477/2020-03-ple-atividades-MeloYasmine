@@ -95,7 +95,7 @@
         @method('DELETE')
         <a type="button" class="btn btn btn-success mx-sm-1 mb-1" href="{{route('users.edit', $user->id)}}">Adicionar Foto/Atualizar Perfil</a>
         <input type="submit" class="btn btn btn-danger mx-sm-1 mb-1" value="Excluir">
-        <a type="button" class="btn btn btn-info mx-sm-1 mb-1" href="{{route('users.index')}}">Voltar</a>
+        <a type="button" class="btn btn btn-info mx-sm-1 mb-1" href="{{route('welcome')}}">Voltar</a>
         
         </form>
         </div>
