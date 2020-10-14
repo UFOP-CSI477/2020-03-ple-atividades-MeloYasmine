@@ -17,24 +17,18 @@
     <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/album/">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" 
     integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <!-- Bootstrap core CSS -->
+   
 
+    <link href="{{asset('estilo.css')}}" rel="stylesheet">
 
-    <style>
-     body{
-        background-color:#f9f9f9;
-        
-      }
-    </style>
-    <!-- Custom styles for this template -->
-
+    
   </head>
-  <body >
-    <form  action="{{route('musicas.store')}}" method="post"  files="true" enctype="multipart/form-data" style="border-style:dashed; margin:10px; border-radius: 10px; margin-bottom:150pt;">
+  <body>
+    <form  class="formulario" action="{{route('musicas.store')}}" method="post"  files="true" enctype="multipart/form-data">
         @csrf
        
-    <div class="container" style="place-items:center; margin-top:30pt; margin-bottom:30pt">
-      <h1 class="card-title" style="text-align:center; margin-bottom:20pt;">Cadastro de músicas</h1>
+    <div class="divcadastros container">
+      <h1 class="card-title">Cadastro de músicas</h1>
 
         <div class="row">
           

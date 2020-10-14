@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Playlist;
 use App\Models\Musica;
+use App\Models\User;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
@@ -31,7 +32,12 @@ class PlaylistController extends Controller
     public function create()
     {
         $musicas = Musica::orderBy('nome')->get();
-        return view('playlists.create', ['musicas' => $musicas]);
+
+       
+         
+        $playlists = DB::table('playlists')->where('user_id', Auth::user()->id)->distinct()->pluck('nome');
+
+        return view('playlists.create', ['musicas' => $musicas, 'playlists' => $playlists]);
 
     }
 
@@ -44,7 +50,16 @@ class PlaylistController extends Controller
     public function store(Request $request)
     {
         
-  
+        $idAtual = DB::table('playlists')->insertGetId(
+            ['nome' => $request->nome,
+            'user_id' => Auth::user()->id,
+            'musica_id' => $request->musica_id,
+            ]
+        );
+
+        session()->flash('mensagem', 'Musica cadastrada na playlist');
+        return redirect()->route('playlists.create');
+
     }
 
     /**
