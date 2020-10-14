@@ -21,7 +21,13 @@ class PlaylistController extends Controller
      */
     public function index()
     {
-        $playlists = DB::table('playlists')->where('user_id', Auth::user()->id)->distinct()->pluck('nome');
+
+     $playlists = DB::table('playlists')
+                ->where('user_id', Auth::user()->id)
+                ->groupBy('nome')
+                ->get();
+
+        return view('playlists.index', ['playlists' => $playlists]);
 
     }
 
@@ -71,7 +77,13 @@ class PlaylistController extends Controller
      */
     public function show(Playlist $playlist)
     {
-        //
+
+        $musicas_id = Playlist::select('musica_id')->where('nome', $playlist->nome)->where('user_id', $playlist->user_id)->get();
+        
+
+        $musicas = Musica::where('id', $musicas_id);
+
+        return view('playlists.show', ['playlist'=>$playlist, 'musicas' => $musicas]);
     }
 
     /**

@@ -182,7 +182,7 @@
             
             <h3 class="mb-0 d-inline-block mb-2 text-dark">PLAYLISTS</h3>
   
-          <a href="{{route('playlists.create')}}" class="stretched-link">
+          <a href="{{route('playlists.index')}}" class="stretched-link">
           </div>
           <div class="col-auto d-none d-lg-block">
             <img src="{{asset('4.png')}}" class="bd-placeholder-img" width="255" height="250" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail" rect width="100%" height="100%" fill="#55595c">

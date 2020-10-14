@@ -86,6 +86,7 @@
 
     <form  action="{{route('playlists.store')}}" method="post"  files="true" enctype="multipart/form-data">
       @csrf
+
           
           <div class="col-md-4" >
             <div class="form-group">
