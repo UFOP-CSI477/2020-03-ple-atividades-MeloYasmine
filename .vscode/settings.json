@@ -1,6 +1,15 @@
 {
     "cSpell.words": [
-        "dbfile"
+        "artista",
+        "artistas",
+        "controller",
+        "dbfile",
+        "genero",
+        "genero controller",
+        "lista",
+        "musicas",
+        "musicas recomendadas",
+        "recomendadas"
     ],
     "blade.format.enable": true
 }

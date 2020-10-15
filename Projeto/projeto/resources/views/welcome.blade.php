@@ -34,16 +34,7 @@
             Home
           </a>
 
-          <a href="#" class="navbar-brand d-flex align-items-center">
-            <svg width="40" height="40" viewBox="0 0 20 20" class="bi bi-card-list" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-              <path fill-rule="evenodd" d="M14.5 3h-13a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h13a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z"/>
-              <path fill-rule="evenodd" d="M5 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 5 8zm0-2.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0 5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5z"/>
-              <circle cx="3.5" cy="5.5" r=".5"/>
-              <circle cx="3.5" cy="8" r=".5"/>
-              <circle cx="3.5" cy="10.5" r=".5"/>
-            </svg>
-              Sobre
-            </a>
+  
          
 
       <!-- Authentication Links -->
@@ -135,22 +126,7 @@
         </div>
       </div>
 
-      <div class="col-md-3">
-        <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-          <div class="col p-4 d-flex flex-column position-static">
-            
-            <h3 class="mb-0 d-inline-block mb-2 text-dark">ÁREA GERAL</h3>
-    
-          <a href="{{route('users.create')}}" class="stretched-link">
-          </div>
-          <div class="col-auto d-none d-lg-block">
-            <img href="{{route('users.create')}}" src="{{asset('5.png')}}" class="bd-placeholder-img" width="255" height="250" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail" rect width="100%" height="100%" fill="#55595c">
-          </a>
-          </div>
-        
-        </div>
-      </div>
-
+      
     
       <div class="col-md-3">
         <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
@@ -193,6 +169,21 @@
   
 
 
+      <div class="col-md-3">
+        <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+          <div class="col p-4 d-flex flex-column position-static">
+            
+            <h3 class="mb-0 d-inline-block mb-2 text-dark">SOBRE</h3>
+    
+          <a href="{{route('sobre')}}" class="stretched-link">
+          </div>
+          <div class="col-auto d-none d-lg-block">
+            <img  src="{{asset('5.png')}}" class="bd-placeholder-img" width="255" height="250" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail" rect width="100%" height="100%" fill="#55595c">
+          </a>
+          </div>
+        
+        </div>
+      </div>
 
 
     

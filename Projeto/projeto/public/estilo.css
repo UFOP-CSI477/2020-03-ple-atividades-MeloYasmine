@@ -50,3 +50,16 @@
      border-radius: 10px; 
      margin-bottom:150pt;
   }
+
+  .cardPlaylist{
+    margin-bottom: 20pt;
+  }
+
+  svg{
+    
+    cursor: pointer;
+  }
+
+  .uppercase {
+    text-transform: uppercase;
+}

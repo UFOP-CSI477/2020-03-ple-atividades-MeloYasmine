@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Genero;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Auth;
 class GeneroController extends Controller
 {
     /**
@@ -14,7 +14,14 @@ class GeneroController extends Controller
      */
     public function index()
     {
-        //
+        if(Auth::user()->tipo == 'A'){
+
+
+
+        }else{
+            session()->flash('mensagem', 'Infelizmente você não tem permissão :(');
+            return redirect()->route('welcome');
+        }
     }
 
     /**
@@ -24,7 +31,15 @@ class GeneroController extends Controller
      */
     public function create()
     {
-        //
+        if(Auth::user()->tipo == 'A'){
+
+            return view('generos.create');
+
+        }else{
+            session()->flash('mensagem', 'Infelizmente você não tem permissão :(');
+            return redirect()->route('welcome');
+        }
+
     }
 
     /**
@@ -35,7 +50,17 @@ class GeneroController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        if(Auth::user()->tipo == 'A'){
+
+            Genero::create($request->all());
+            session()->flash('mensagem', 'Gênero musical cadastrado!');
+            return redirect()->route('generos.create');
+
+
+        }else{
+            session()->flash('mensagem', 'Infelizmente você não tem permissão :(');
+            return redirect()->route('welcome');
+        }
     }
 
     /**
@@ -46,7 +71,14 @@ class GeneroController extends Controller
      */
     public function show(Genero $genero)
     {
-        //
+        if(Auth::user()->tipo == 'A'){
+
+
+
+        }else{
+            session()->flash('mensagem', 'Infelizmente você não tem permissão :(');
+            return redirect()->route('welcome');
+        }
     }
 
     /**
@@ -57,7 +89,14 @@ class GeneroController extends Controller
      */
     public function edit(Genero $genero)
     {
-        //
+        if(Auth::user()->tipo == 'A'){
+
+
+
+        }else{
+            session()->flash('mensagem', 'Infelizmente você não tem permissão :(');
+            return redirect()->route('welcome');
+        }
     }
 
     /**
@@ -69,7 +108,14 @@ class GeneroController extends Controller
      */
     public function update(Request $request, Genero $genero)
     {
-        //
+        if(Auth::user()->tipo == 'A'){
+
+
+
+        }else{
+            session()->flash('mensagem', 'Infelizmente você não tem permissão :(');
+            return redirect()->route('welcome');
+        }
     }
 
     /**
@@ -80,6 +126,18 @@ class GeneroController extends Controller
      */
     public function destroy(Genero $genero)
     {
-        //
+        if(Auth::user()->tipo == 'A'){
+
+            if($genero->musicas->count() > 0){
+                session()->flash('mensagem', 'Esse gênero tem músicas cadastradas!');
+            }else{
+                $genero->delete();
+                session()->flash('mensagem', 'Gênero musical excluído!');
+            }
+
+        }else{
+            session()->flash('mensagem', 'Infelizmente você não tem permissão :(');
+            return redirect()->route('welcome');
+        }
     }
 }

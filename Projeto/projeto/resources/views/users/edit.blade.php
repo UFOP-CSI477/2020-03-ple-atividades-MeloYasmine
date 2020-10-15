@@ -108,12 +108,30 @@
                 <div class="form-group">
                     <label for="genero_fav">Gênero musical favorito: </label>
                 
-                    <select required="required" class="form-control" id="genero_fav"  name="genero_fav">
-                        <option value="{{$user->genero_fav}}">{{$user->genero_fav}}</option>
-                        <option value="POP">POP</option>
-                        <option value="ROCK">ROCK</option>
-                        <option value="LO-FI">LO-FI</option>
-                    </select>        
+                    <select required="required" class="form-control" id="genero_fav"  name="genero_fav">  
+                      <option value="CLÁSSICA">CLÁSSICA</option>
+                      <option value="COUNTRY">COUNTRY</option>
+                      <option value="DREAM POP">DREAM POP</option>   
+                      <option value="FUNK">FUNK</option> 
+                      <option value="INDIE">INDIE</option> 
+                      <option value="INSTRUMENTAL">INSTRUMENTAL</option>
+                      <option value="JAZZ">JAZZ</option>
+                      <option value="LO-FI">LO-FI</option>  
+                      
+                      <option value="POP">POP</option>     
+                      <option value="POP ROCK">POP ROCK</option>   
+                      <option value="ROCK">ROCK</option>   
+                        
+                      
+                      <option value="SERTANEJO">SERTANEJO</option>
+                      
+                        
+                      
+                           
+                    
+                      
+              
+                  </select>         
               </div>
             </div>
   

@@ -3,11 +3,11 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
-use App\Models\Equipamento;
 
 use App\Http\Controllers\MusicaController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PlaylistController;
+use App\Http\Controllers\GeneroController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,19 +23,18 @@ Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
 
+Route::get('/sobre', function () {
+    return view('sobre');
+})->name('sobre');
 
-Route::get('/m', function () {
-    return view('m');
-});
-
-Route::get('/foto',
- [UserController::class, 'foto'])->name('foto');
 
 Route::resource('/musicas', MusicaController::class)->middleware('auth');
 
 Route::resource('/playlists', PlaylistController::class)->middleware('auth');
 
-Route::resource('/users', UserController::class);
+Route::resource('/users', UserController::class)->middleware('auth');
+
+Route::resource('/generos', GeneroController::class)->middleware('auth');
 
 Auth::routes();
 

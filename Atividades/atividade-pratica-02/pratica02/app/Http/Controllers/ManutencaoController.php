@@ -29,6 +29,7 @@ class ManutencaoController extends Controller
         $registros = Registro::orderBy('datalimite', 'asc')->get();
         $lista = array();
         $equi = Equipamento::get();
+        
         foreach($equi as $e){
     
             $query = Registro::where('equipamento_id','=', $e->id)->get();

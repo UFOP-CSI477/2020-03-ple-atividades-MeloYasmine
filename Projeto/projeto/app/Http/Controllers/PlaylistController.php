@@ -57,14 +57,14 @@ class PlaylistController extends Controller
     public function store(Request $request)
     {
         
-        $idAtual = DB::table('playlists')->insertGetId(
+        DB::table('playlists')->insertGetId(
             ['nome' => $request->nome,
             'user_id' => Auth::user()->id,
             'musica_id' => $request->musica_id,
             ]
         );
 
-        session()->flash('mensagem', 'Musica cadastrada na playlist');
+        session()->flash('mensagem', 'Música cadastrada na playlist');
         return redirect()->route('playlists.create');
 
     }
@@ -80,10 +80,20 @@ class PlaylistController extends Controller
 
         $musicas_id = Playlist::select('musica_id')->where('nome', $playlist->nome)->where('user_id', $playlist->user_id)->get();
         
+        $todasMusicas = Musica::get();
 
-        $musicas = Musica::where('id', $musicas_id);
+        $lista = array();
 
-        return view('playlists.show', ['playlist'=>$playlist, 'musicas' => $musicas]);
+       foreach($todasMusicas as $musica){
+           
+           if ($musicas_id->pluck('musica_id')->contains($musica->id)){
+               array_push($lista, $musica);
+           }
+
+        }
+       
+
+        return view('playlists.show', ['playlist'=>$playlist, 'musicas_id' => $musicas_id, 'lista' => $lista]);
     }
 
     /**
@@ -117,6 +127,16 @@ class PlaylistController extends Controller
      */
     public function destroy(Playlist $playlist)
     {
-        //
+        $nomeP = $playlist->nome;
+        $userP = $playlist->user_id;
+        $deletar = DB::table('playlists')
+                    ->where('nome', $nomeP )
+                    ->where('user_id', $userP)
+                    ->delete();
+
+        
+        session()->flash('mensagem', 'Playlist deletada :(');
+        return redirect()->route('playlists.index');
+        
     }
 }

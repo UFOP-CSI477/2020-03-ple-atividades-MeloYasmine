@@ -15,4 +15,8 @@ class Musica extends Model
             
         return $this->hasOne('App\Models\Genero', 'id', 'genero_id');
     }
+
+    public function playlists(){
+        return $this->hasMany(Playlist::class);
+    }
 }

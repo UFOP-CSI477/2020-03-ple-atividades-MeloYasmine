@@ -106,6 +106,7 @@ class UserController extends Controller
 
         //caso usuario tenha foto
         $data['foto'] = $user->foto;
+        $nameFile = $user->foto;
         
         //se informou imagem
         if($request->hasFile('foto') && $request->file('foto')->isValid()){
